@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Map, Marker, GoogleApiWrapper, Polygon } from "google-maps-react";
+import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 
 class MapContainer extends Component {
   render() {
@@ -7,12 +7,7 @@ class MapContainer extends Component {
       width: "90vw",
       height: "80vh"
     };
-    const triangleCoords = [
-      { lat: 25.774, lng: -80.19 },
-      { lat: 18.466, lng: -66.118 },
-      { lat: 32.321, lng: -64.757 },
-      { lat: 25.774, lng: -80.19 }
-    ];
+
     return (
       <div className="mapContainer">
         <Map
@@ -39,14 +34,6 @@ class MapContainer extends Component {
             name={"Your position"}
             position={{ lat: 37.762391, lng: -122.439192 }}
           />
-          <Polygon
-            paths={triangleCoords}
-            strokeColor="#0000FF"
-            strokeOpacity={0.8}
-            strokeWeight={2}
-            fillColor="#0000FF"
-            fillOpacity={0.35}
-          />
         </Map>
       </div>
     );
@@ -56,3 +43,5 @@ class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: "AIzaSyAUTV-rXp0MkyXfDftokR4tFGFqq0lb2zc"
 })(MapContainer);
+
+// export default MapContainer;

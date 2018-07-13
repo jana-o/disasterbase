@@ -24,7 +24,7 @@ router.get("/", (req, res, next) => {
 
 // Route to add a contact
 router.post("/contact", (req, res, next) => {
-  let { name, capitals, area, description } = req.body;
+  let { name, email, phone } = req.body;
   Contact.create({ name, email, phone })
     .then(contact => {
       res.json({

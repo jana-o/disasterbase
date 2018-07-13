@@ -8,17 +8,17 @@ class Contacts extends Component {
       contacts: []
     };
   }
-  componentDidMount() {
-    api
-      .getContacts()
-      .then(contacts => {
-        console.log(contacts);
-        this.setState({
-          contacts: contacts
-        });
-      })
-      .catch(err => console.log(err));
-  }
+  // componentDidMount() {
+  //   api
+  //     .getContacts()
+  //     .then(contacts => {
+  //       console.log(contacts);
+  //       this.setState({
+  //         contacts: contacts
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // }
   render() {
     return (
       <div className="Contacts">

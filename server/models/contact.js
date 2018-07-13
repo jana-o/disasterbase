@@ -8,7 +8,7 @@ const contactSchema = new Schema({
   // salt: String, // Defined with passportLocalMongoose
   name: { type: String, required: [true, "A name is required"] },
   email: String,
-  phone: Number
+  phone: String
   //_owner: Userid
 });
 

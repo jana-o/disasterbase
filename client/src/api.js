@@ -13,16 +13,16 @@ const errHandler = err => {
 export default {
   service: service,
 
-  getCountries() {
+  getEvents() {
     return service
-      .get("/countries")
+      .get("/")
       .then(res => res.data)
       .catch(errHandler);
   },
 
-  postCountries(data) {
+  postEvents(data) {
     return service
-      .post("/countries", data)
+      .post("/", data)
       .then(res => res.data)
       .catch(errHandler);
   },
@@ -81,32 +81,5 @@ export default {
 
   isLoggedIn() {
     return localStorage.getItem("user") != null;
-  },
-
-  addPicture(file) {
-    const formData = new FormData();
-    formData.append("picture", file);
-    console.log("DEBUG formData", formData.get("picture"));
-    return service
-      .post("/users/first-user/pictures", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
-  editPicture(file) {
-    const formData = new FormData();
-    formData.append("picture", file);
-    return service
-      .post("/users/picture", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      .then(res => res.data)
-      .catch(errHandler);
   }
 };

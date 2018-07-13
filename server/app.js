@@ -11,6 +11,7 @@ const { Strategy, ExtractJwt } = require("passport-jwt");
 
 const config = require("./configs/index");
 var User = require("./models/user");
+var eventsRoutes = require("./routes/events");
 var authRoutes = require("./routes/auth");
 var contactsRoutes = require("./routes/contacts");
 var usersRoutes = require("./routes/users");
@@ -62,6 +63,7 @@ passport.use(strategy);
 app.use("/api", authRoutes);
 app.use("/api/contacts", contactsRoutes);
 app.use("/api/users", usersRoutes);
+app.use("/api/events", eventsRoutes);
 
 // For any routes that starts with "/api", catch 404 and forward to error handler
 app.use("/api/*", (req, res, next) => {
