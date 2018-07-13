@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import GoogleMapReact from "google-map-react";
+import MapContainer from "./map";
 /*global google*/
 
 import api from "../api";
@@ -13,23 +13,15 @@ class Home extends Component {
       earthquakes: []
     };
   }
-  componentDidMount() {
-    axios
-      .get(
-        `http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson`
-      )
-      .then(response => {
-        console.log("response data", response.data.results);
-        // this.setState({
-        //   earhtquakes: response.data.results.map((pokemon, i) => ({
-        //     name: pokemon.name,
-        //     url: pokemon.url,
-
-        //   })),
-        //     name: response.data.results.name
-        //   });
-      });
-  }
+  //  componentDidMount() {
+  //   axios
+  //      .get(
+  //        `http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson`
+  //      )
+  //      .then(response => {
+  //        console.log("response data", response.data.results);
+  //      });
+  //  }
   //http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson
   // usgs = "http://earthquake.usgs.gov/earthquakes/";
   // geoJsonFeed = "feed/v1.0/summary/4.5_month.geojson";
@@ -40,9 +32,18 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <h2>Home</h2>
-        <div className="map" />
-        <GoogleMapReact>zoom={1}</GoogleMapReact>
+        <div className="data">
+          <div className="main">
+            <div className="map">
+              Map
+              <MapContainer />
+              {/* <GoogleMapReact zoom={1}>Map</GoogleMapReact> */}
+            </div>
+            <div className="graphs">Graphs</div>
+            <div className="graphs">Graphs</div>
+          </div>
+          <div className="paragraph">Paragraph</div>
+        </div>
       </div>
     );
   }

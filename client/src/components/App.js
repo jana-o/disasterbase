@@ -5,13 +5,12 @@ import Header from "./Layouts/header";
 import Footer from "./Layouts/footer";
 
 import Home from "./Home";
-import MapContainer from "./components/map";
-
-// import GoogleMapReact from "google-map-react";
+//import MapContainer from "./map";
+//import GoogleMapReact from "google-map-react";
 
 import Profile from "./Profile";
-import Countries from "./Countries";
-import AddCountry from "./AddCountry";
+import Countact from "./Countacts";
+import AddContacts from "./AddContacts";
 import Secret from "./Secret";
 import Login from "./Login";
 import Signup from "./Signup";
@@ -38,7 +37,9 @@ class App extends Component {
         <Header className="Header">
           <div className="Navbar" />
           <Link to="/">Home</Link>
-          <Link to="/countries">Countries</Link>
+          <Link to="/map">Map</Link>
+
+          <Link to="/contact">Contacts</Link>
           <Link to="/profile">Profile</Link>
           {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
           {!api.isLoggedIn() && <Link to="/login">Login</Link>}
@@ -53,26 +54,17 @@ class App extends Component {
         </Header>
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/map" exact component={Map} />
+
           <Route path="/profile" exact component={Profile} />
 
-          <Route path="/countries" component={Countries} />
-          <Route path="/add-country" component={AddCountry} />
+          <Route path="/countact" component={Contacts} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
-        <div className="data">
-          <div className="main">
-            <div className="map">
-              <MapContainer />
-              {/* <GoogleMapReact zoom={1}>Map</GoogleMapReact> */}
-            </div>
-            <div className="graphs">Graphs</div>
-            <div className="graphs">Graphs</div>
-          </div>
-          <div className="graphs">Paragraph</div>
-        </div>
+
         <Footer />
       </div>
     );

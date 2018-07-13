@@ -12,19 +12,21 @@ router.get("/", (req, res, next) => {
     .catch(err => next(err));
 });
 
-//api.postCountries(data)
+//api.postContacts(data)
 // .then(result => {
-//this.props.history.push("/countries") => redirected to page countries after
+//this.props.history.push("/contacts") => redirected to page contacts after
 // .this.setState({
-//     name:""
+//     name:"",
+//      email:"",
+//      phone:""
 // })
 // })
 
 // Route to add a contact
-router.post("/", (req, res, next) => {
+router.post("/contact", (req, res, next) => {
   let { name, capitals, area, description } = req.body;
-  Countact.create({ name, email, phone })
-    .then(country => {
+  Contact.create({ name, email, phone })
+    .then(contact => {
       res.json({
         success: true,
         contact

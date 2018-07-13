@@ -3,15 +3,13 @@ import axios from "axios";
 // import { Route, Switch, NavLink, Link } from 'react-router-dom';
 import api from "../api";
 
-class AddCountry extends Component {
+class AddContact extends Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      capitals: "",
-      area: "",
-      description: "",
-      message: null
+      email: "",
+      phone: ""
     };
   }
 
@@ -24,23 +22,23 @@ class AddCountry extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    console.log(this.state.name, this.state.description);
+    console.log(this.state.name, this.state.email);
     let data = {
       name: this.state.name,
-      capitals: this.state.capitals,
-      area: this.state.area,
-      description: this.state.description
+      email: this.state.email,
+      phone: this.state.phone
     };
     api
-      .postCountries(data)
+      .postContact(data)
       .then(result => {
         console.log("SUCCESS!");
         this.setState({
           name: "",
-          capitals: "",
-          area: "",
-          description: "",
-          message: `Your country '${this.state.name}' has been created`
+          email: "",
+          phone: "",
+          message: `Your emergency contact '${
+            this.state.name
+          }' has been created`
         });
         setTimeout(() => {
           this.setState({
@@ -54,8 +52,8 @@ class AddCountry extends Component {
   }
   render() {
     return (
-      <div className="AddCountry">
-        <h2>Add country</h2>
+      <div className="AddContact">
+        <h2>Add new emergency contact</h2>
         <form>
           Name:{" "}
           <input
@@ -66,35 +64,28 @@ class AddCountry extends Component {
             }}
           />{" "}
           <br />
-          Capitals{" "}
+          Email:{" "}
           <input
             type="text"
-            value={this.state.capitals}
+            value={this.state.emails}
             onChange={e => {
-              this.handleInputChange("capitals", e);
+              this.handleInputChange("emails", e);
             }}
           />{" "}
           <br />
-          Area{" "}
+          Phone:{" "}
           <input
             type="number"
-            value={this.state.area}
+            value={this.state.number}
             onChange={e => {
-              this.handleInputChange("area", e);
+              this.handleInputChange("number", e);
             }}
           />{" "}
           <br />
-          Description{" "}
-          <textarea
-            value={this.state.description}
-            cols="30"
-            rows="10"
-            onChange={e => {
-              this.handleInputChange("description", e);
-            }}
-          />{" "}
           <br />
-          <button onClick={e => this.handleClick(e)}>Create country</button>
+          <button onClick={e => this.handleClick(e)}>
+            Create emergency contact
+          </button>
         </form>
         <div
           style={{
@@ -110,4 +101,4 @@ class AddCountry extends Component {
   }
 }
 
-export default AddCountry;
+export default AddContact;
