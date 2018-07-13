@@ -36,7 +36,7 @@ class App extends Component {
     return (
       <div className="App">
         Hello
-        <Button>Hello</Button>
+        <Button color="primary">Hello</Button>
         <header className="Header">
           <div className="Navbar" />
           <Link to="/">Home </Link>
