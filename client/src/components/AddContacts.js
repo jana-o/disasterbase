@@ -1,55 +1,57 @@
 import React, { Component } from "react";
-import axios from "axios";
+// import axios from "axios";
+import { Button } from "reactstrap";
+
 // import { Route, Switch, NavLink, Link } from 'react-router-dom';
-import api from "../api";
+// import api from "../api";
 
 class AddContacts extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      email: "",
-      phone: ""
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     name: "",
+  //     email: "",
+  //     phone: ""
+  //   };
+  // }
 
-  handleInputChange(stateFieldName, event) {
-    let newState = {};
-    newState[stateFieldName] = event.target.value;
+  // handleInputChange(stateFieldName, event) {
+  //   let newState = {};
+  //   newState[stateFieldName] = event.target.value;
 
-    this.setState(newState);
-  }
+  //   this.setState(newState);
+  // }
 
-  handleClick(e) {
-    e.preventDefault();
-    console.log(this.state.name, this.state.email);
-    let data = {
-      name: this.state.name,
-      email: this.state.email,
-      phone: this.state.phone
-    };
-    api
-      .postContact(data)
-      .then(result => {
-        console.log("SUCCESS!");
-        this.setState({
-          name: "",
-          email: "",
-          phone: "",
-          message: `Your emergency contact '${
-            this.state.name
-          }' has been created`
-        });
-        setTimeout(() => {
-          this.setState({
-            message: null
-          });
-        }, 2000);
-      })
-      .catch(err => {
-        console.log("ERROR");
-      });
-  }
+  // handleClick(e) {
+  //   e.preventDefault();
+  //   console.log(this.state.name, this.state.email);
+  //   let data = {
+  //     name: this.state.name,
+  //     email: this.state.email,
+  //     phone: this.state.phone
+  //   };
+  //   api
+  //     .postContact(data)
+  //     .then(result => {
+  //       console.log("SUCCESS!");
+  //       this.setState({
+  //         name: "",
+  //         email: "",
+  //         phone: "",
+  //         message: `Your emergency contact '${
+  //           this.state.name
+  //         }' has been created`
+  //       });
+  //       setTimeout(() => {
+  //         this.setState({
+  //           message: null
+  //         });
+  //       }, 2000);
+  //     })
+  //     .catch(err => {
+  //       console.log("ERROR");
+  //     });
+  // }
   render() {
     return (
       <div className="AddContact">
@@ -83,9 +85,10 @@ class AddContacts extends Component {
           />{" "}
           <br />
           <br />
-          <button onClick={e => this.handleClick(e)}>
+          <Button color="primary" onClick={e => this.handleClick(e)}>
+            {" "}
             Create emergency contact
-          </button>
+          </Button>
         </form>
         <div
           style={{

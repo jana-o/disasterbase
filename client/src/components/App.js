@@ -1,16 +1,14 @@
 import React, { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 // import { Header, Footer } from "./Layouts";
-import { Button } from "reactstrap";
 // import Header from "./Layouts/header";
 import Footer from "./Layouts/footer";
-
 import Home from "./Home";
 //import MapContainer from "./map";
 //import GoogleMapReact from "google-map-react";
 
 import Profile from "./Profile";
-import Contacts from "./Countacts";
+import Contacts from "./Contacts";
 import AddContacts from "./AddContacts";
 import Secret from "./Secret";
 import Login from "./Login";
@@ -35,13 +33,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Hello
-        <Button color="primary">Hello</Button>
         <header className="Header">
           <div className="Navbar" />
           <Link to="/">Home </Link>
 
           <Link to="/contacts">Contacts </Link>
+          {api.isLoggedIn() && (
+            <Link to="/add-contact">Add Emergency Contact </Link>
+          )}
           <Link to="/profile">Profile </Link>
           {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
           {!api.isLoggedIn() && <Link to="/login">Login</Link>}
@@ -52,6 +51,7 @@ class App extends Component {
               Logout
             </Link>
           )}
+
           <Link to="/secret">Secret </Link>
         </header>
         <Switch>
@@ -60,6 +60,8 @@ class App extends Component {
           <Route path="/profile" exact component={Profile} />
 
           <Route path="/contacts" component={Contacts} />
+          <Route path="/add-contacts" component={AddContacts} />
+
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />

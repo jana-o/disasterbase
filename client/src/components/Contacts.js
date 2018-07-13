@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from "../api";
+// import api from "../api";
 
 class Contacts extends Component {
   constructor(props) {

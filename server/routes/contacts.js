@@ -4,7 +4,15 @@ const Contact = require("../models/contact");
 var router = express.Router();
 
 // Route to get all contacts
-router.get("/", (req, res, next) => {
+router.get("/contacts", (req, res, next) => {
+  Contact.find()
+    .then(contacts => {
+      res.json(contacts);
+    })
+    .catch(err => next(err));
+});
+
+router.get("/add-contacts", (req, res, next) => {
   Contact.find()
     .then(contacts => {
       res.json(contacts);
@@ -23,7 +31,7 @@ router.get("/", (req, res, next) => {
 // })
 
 // Route to add a contact
-router.post("/contact", (req, res, next) => {
+router.post("/add-contact", (req, res, next) => {
   let { name, email, phone } = req.body;
   Contact.create({ name, email, phone })
     .then(contact => {
