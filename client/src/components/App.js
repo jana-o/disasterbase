@@ -9,7 +9,7 @@ import Home from "./Home";
 //import GoogleMapReact from "google-map-react";
 
 import Profile from "./Profile";
-import Countact from "./Countacts";
+import Contacts from "./Countacts";
 import AddContacts from "./AddContacts";
 import Secret from "./Secret";
 import Login from "./Login";
@@ -58,7 +58,7 @@ class App extends Component {
 
           <Route path="/profile" exact component={Profile} />
 
-          <Route path="/countact" component={Contacts} />
+          <Route path="/contacts" component={Contacts} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/secret" component={Secret} />

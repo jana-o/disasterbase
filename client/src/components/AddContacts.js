@@ -3,7 +3,7 @@ import axios from "axios";
 // import { Route, Switch, NavLink, Link } from 'react-router-dom';
 import api from "../api";
 
-class AddContact extends Component {
+class AddContacts extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -101,4 +101,4 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default AddContacts;
