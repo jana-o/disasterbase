@@ -1,5 +1,5 @@
 $primary: red;
-// $secondary
+$secondary: #f8f9fa;
 // $success
 // $info
 // $warning
@@ -10,3 +10,21 @@ $primary: red;
 @import "bootstrap/scss/bootstrap";
 
 // You can put your own SCSS here
+
+body {
+  padding: 50px;
+  font: 14px "Montserrat", Arial, sans-serif;
+}
+
+.Footer {
+  position: fixed;
+  height: 5vh;
+  padding: 1vh;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $secondary;
+  color: #7777;
+  text-align: center;
+  font-size: 9px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
-// import { Header, Footer } from "./Layouts";
-// import Header from "./Layouts/header";
+import Header from "./Layouts/header";
+
 import Footer from "./Layouts/footer";
 import Home from "./Home";
 //import MapContainer from "./map";
@@ -33,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <header className="Header">
           <div className="Navbar" />
           <Link to="/">Home </Link>

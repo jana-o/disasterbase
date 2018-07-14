@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Event = require("../models/event");
 const axios = require("axios");
+var mongoose = require("mongoose");
 
 // todo make helper file for earthquake
 const earthquakeService = axios.create({
@@ -34,6 +35,24 @@ router.get("/", (req, res, next) => {
 
   //res.json(data);
   console.log("Test");
+});
+
+router.post("/", (req, res, next) => {
+  const theEvent = new Event({
+    mag: data.features.properties.mag,
+    place: data.features.properties.place,
+    coords: data.features.geometry.coordinates
+  });
+
+  theEvent
+    .save()
+    .then(theEvent => {
+      res.json({
+        message: "New Event created!",
+        id: theEvent._id
+      });
+    })
+    .catch(error => next(error));
 });
 
 module.exports = router;

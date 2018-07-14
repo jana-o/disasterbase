@@ -27,13 +27,6 @@ export default {
       .catch(errHandler);
   },
 
-  getSecret() {
-    return service
-      .get("/secret")
-      .then(res => res.data)
-      .catch(errHandler);
-  },
-
   getProfile() {
     return service
       .get("/users/profile")
