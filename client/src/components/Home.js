@@ -2,9 +2,9 @@ import React, { Component } from "react";
 // import axios from "axios";
 import MapContainer from "./Map";
 import Earthquake from "./Earthquake";
-/*global google*/
+// /*global google*/
 
-import api from "../api";
+// import api from "../api";
 
 class Home extends Component {
   constructor(props) {

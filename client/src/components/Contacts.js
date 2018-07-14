@@ -32,7 +32,6 @@ class Contacts extends Component {
           contacts: [
             ...this.state.contacts,
             {
-              _id: data.id,
               name: this.state.name,
               email: this.state.email,
               phone: this.state.phone

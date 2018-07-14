@@ -33,6 +33,7 @@ class Profile extends Component {
             style={{
               height: 200
             }}
+            alt="foto"
           />
         )}
         {this.state.isLoading && <div>Loading...</div>}
