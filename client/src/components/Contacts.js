@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../contact-api";
+import { Button, Table } from "reactstrap";
 
 class Contacts extends Component {
   state = { contacts: [] };
@@ -45,35 +46,63 @@ class Contacts extends Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.state.contacts.map(contact => (
-            <li key={contact._id}>{contact.name}</li>
-          ))}
-        </ul>
+        <h3>Your Emergency Contacts</h3>
+        <Table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.contacts.map(contact => (
+              <tr>
+                <th key={contact._id} scope="row">
+                  {this.state.contacts.length}
+                </th>
+                <td>
+                  <bold>{contact.name}</bold>
+                </td>
+                <td>{contact.email}</td>
+                <td>{contact.phone}</td>
+                <td>
+                  <Button outline color="primary" size="sm">
+                    Delete
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+
+        <h3>Add New Contact</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input
             type="text"
             name="name"
             value={this.state.name}
             onChange={this.handleChange.bind(this)}
-            placeholder="Name of contact"
+            placeholder="Name"
           />
           <input
             type="text"
             name="email"
             value={this.state.email}
             onChange={this.handleChange.bind(this)}
-            placeholder="email"
+            placeholder="Email"
           />
           <input
             type="text"
             name="phone"
             value={this.state.phone}
             onChange={this.handleChange.bind(this)}
-            placeholder="phone"
+            placeholder="Phone"
           />
           <br />
-          <button>Create new contact</button>
+          <Button>Create new contact</Button>
         </form>
       </div>
     );
