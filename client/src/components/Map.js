@@ -36,28 +36,18 @@ class MapContainer extends Component {
           initialCenter={center}
         >
           {this.state.events.map(event => {
+            console.log(event.coords[0], "map22222");
+            console.log(event.coords[1], "1");
             return (
               <Marker
                 key={event.id}
                 name={event.name}
-                position={{ lat: event.coords[0], lng: event.coords[1] }}
+                mag={event.mag}
+                position={{ lng: event.coords[0], lat: event.coords[1] }}
+                // position={{ lat: 37.778519, lng: -122.40564 }}
               />
             );
           })}
-
-          <Marker
-            name={"event.name"}
-            position={{ lat: 37.778519, lng: -122.40564 }}
-          />
-          <Marker
-            name={"Dolores park"}
-            position={{ lat: 7.759703, lng: -122.428093 }}
-          />
-          <Marker />
-          <Marker
-            name={"Your position"}
-            position={{ lat: 37.762391, lng: -122.439192 }}
-          />
         </Map>
       </div>
     );

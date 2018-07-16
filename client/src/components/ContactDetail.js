@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../contact-api";
-import { Button } from "reactstrap";
+import { Button, Table } from "reactstrap";
 
 class ContactDetail extends React.Component {
   id = this.props.match.params.id;
@@ -18,10 +18,9 @@ class ContactDetail extends React.Component {
     api.getContactDetail(id).then(contact => {
       console.log("test", id);
       this.setState({
-        name: this.state.name,
-        email: this.state.email,
-        phone: this.props.phone,
-        id: id
+        name: contact.name,
+        email: contact.email,
+        phone: contact.phone
       });
     });
   }
@@ -57,9 +56,9 @@ class ContactDetail extends React.Component {
       <div className="ContactDetails">
         <h4>Contact Details</h4>
         <div>
-          Name: {id} <br />
+          Name: {this.state.name} <br />
           Email: {this.state.email} <br />
-          Phone: {this.props.phone}
+          Phone: {this.state.phone}
         </div>
         <Button
           outline

@@ -64,9 +64,7 @@ class Contacts extends Component {
                 <td scope="row">{i + 1}</td>
                 <td style={{ fontWeight: "bold" }}>{contact.name}</td>
                 <td>{contact.email}</td>
-                <td>
-                  {contact.phone} {contact._id}
-                </td>
+                <td>{contact.phone}</td>
                 <td>
                   <Button outline color="primary" size="sm">
                     <Link

@@ -30,13 +30,19 @@ function sanitizeData(data) {
   return earthquakes;
 }
 
+// router.get("/", (req, res, next) => {
+//   Event.create()
+//     .then(data => res.json(data))
+//     .catch(err => next(err));
+// });
+
 // Route to get all API
 router.get("/update", (req, res, next) => {
   var starttime = Date - 14;
   var endtime = Date;
 
   earthquakeService
-    .get(`starttime=${2018 - 07 - 01}&endtime=2018-07-13`)
+    .get(`starttime=2018-07-01&endtime=2018-07-13`)
     .then(json => res.json(sanitizeData(json.data)))
     .catch(err => next(err));
   //res.json(data);
@@ -50,24 +56,6 @@ router.get("/", (req, res, next) => {
   Event.find()
     .then(data => res.json(data))
     .catch(err => next(err));
-});
-
-router.post("/", (req, res, next) => {
-  const theEvent = new Event({
-    mag: data.features.properties.mag,
-    place: data.features.properties.place,
-    coords: data.features.geometry.coordinates
-  });
-
-  theEvent
-    .save()
-    .then(theEvent => {
-      res.json({
-        message: "New Event created!",
-        id: theEvent._id
-      });
-    })
-    .catch(error => next(error));
 });
 
 module.exports = router;

@@ -32,7 +32,7 @@ router.post("/", (req, res, next) => {
 });
 
 /* GET a single Contact. */
-router.get("/contacts/:id", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   console.log("enter find id");
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: "Specified id is not valid" });

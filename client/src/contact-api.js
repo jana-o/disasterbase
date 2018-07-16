@@ -29,8 +29,8 @@ export default {
     return service
       .get("/" + id)
       .then(res => {
-        res.data;
         console.log("AFTER", id);
+        return res.data;
       })
       .catch(errHandler);
   },
