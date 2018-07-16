@@ -47,12 +47,6 @@ class Home extends Component {
     });
   };
 
-  //var coords = results.features[i].geometry.coordinates;
-
-  // {this.state.earthquakes.map(earthquake => (
-  //   <Earthquake key={earthquake.id} name={earthquake.name} id={earthquake.id} />
-  // ))}
-
   render() {
     return (
       <div className="Home">
@@ -67,7 +61,7 @@ class Home extends Component {
                 <tr>
                   <th>#</th>
                   <th>Name</th>
-                  <th>Mag</th>
+                  <th>Magnitude</th>
                   <th>Coordinates</th>
                 </tr>
               </thead>
@@ -77,6 +71,7 @@ class Home extends Component {
                     <Event
                       key={i}
                       event={event}
+                      i={i}
                       //selectFlat={this.selectFlat}
                     />
                   );

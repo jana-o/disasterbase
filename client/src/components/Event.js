@@ -5,9 +5,11 @@ import React from "react";
 class Events extends React.Component {
   render() {
     let event = this.props.event;
+    let i = this.props.i;
+
     return (
       <tr>
-        <td />
+        <td>{i + 1}</td>
         <td>{event.place}</td>
         <td>{event.mag}</td>
         <td>

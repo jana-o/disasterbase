@@ -36,13 +36,11 @@ class MapContainer extends Component {
           initialCenter={center}
         >
           {this.state.events.map(event => {
-            console.log(event.coords[0], "map22222");
-            console.log(event.coords[1], "1");
             return (
               <Marker
                 key={event.id}
                 name={event.name}
-                mag={event.mag}
+                text={event.mag}
                 position={{ lng: event.coords[0], lat: event.coords[1] }}
                 // position={{ lat: 37.778519, lng: -122.40564 }}
               />
