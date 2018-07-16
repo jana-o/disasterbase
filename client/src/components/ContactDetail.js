@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../contact-api";
-import { Button, Table } from "reactstrap";
+import { Button } from "reactstrap";
 
 class ContactDetail extends React.Component {
   id = this.props.match.params.id;
@@ -49,8 +49,8 @@ class ContactDetail extends React.Component {
   // modifyContact()
 
   render() {
-    let id = this.props.match.params.id;
-    let contact = this.props.contact;
+    //let id = this.props.match.params.id;
+    //let contact = this.props.contact;
 
     return (
       <div className="ContactDetails">

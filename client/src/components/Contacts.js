@@ -61,7 +61,7 @@ class Contacts extends Component {
           <tbody>
             {this.state.contacts.map((contact, i) => (
               <tr key={i}>
-                <td scope="row">{i + 1}</td>
+                <td>{i + 1}</td>
                 <td style={{ fontWeight: "bold" }}>{contact.name}</td>
                 <td>{contact.email}</td>
                 <td>{contact.phone}</td>

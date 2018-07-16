@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 // import Header from "./Layouts/header";
 import {
   Collapse,
@@ -71,22 +71,6 @@ class App extends Component {
           </Collapse>
         </Navbar>
         <Container>
-          {/* <header className="Header">
-          <div className="Navbar" />
-          <Link to="/">Home </Link>
-
-          {api.isLoggedIn() && <Link to="/contacts">Contacts </Link>}
-          <Link to="/profile">Profile </Link>
-          {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
-          {!api.isLoggedIn() && <Link to="/login">Login</Link>}
-          {!api.isLoggedIn() && <Link to="/profile">Profile</Link>}
-
-          {api.isLoggedIn() && (
-            <Link to="/" onClick={e => this.handleLogoutClick(e)}>
-              Logout
-            </Link>
-          )}
-        </header> */}
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/profile" exact component={Profile} />

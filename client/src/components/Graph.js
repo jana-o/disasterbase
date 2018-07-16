@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 class Graph extends Component {
   render() {
-    let event = this.props.event;
+    //let event = this.props.event;
 
     return (
       <div>

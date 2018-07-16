@@ -20,6 +20,12 @@ class MapContainer extends Component {
       lat: 52.509663,
       lng: 13.376481
     };
+    if (this.state.selectedEvent) {
+      center = {
+        lat: this.state.selectedEvent.lat,
+        lng: this.state.selectedEvent.lng
+      };
+    }
 
     return (
       <div className="mapContainer">

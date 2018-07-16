@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import api from "../contact-api";
-import { Button, Alert } from "reactstrap";
+//import api from "../contact-api";
+import { Button } from "reactstrap";
 
 class Help extends Component {
   //state false

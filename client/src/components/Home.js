@@ -10,8 +10,6 @@ import Searchbar from "./Searchbar";
 
 import { Table } from "reactstrap";
 
-import Marker from "./Marker";
-
 // /*global google*/
 
 import api from "../api";
@@ -21,8 +19,8 @@ class Home extends Component {
     super(props);
     this.state = {
       events: [],
-      contacts: []
-      // selectEvent: null,
+      contacts: [],
+      selectedEvent: null
       // search: ""
     };
   }
@@ -33,12 +31,12 @@ class Home extends Component {
     });
   }
 
-  // selectEvent = event => {
-  //   console.log(event);
-  //   this.setState({
-  //     selectedEvent: event
-  //   });
-  // };
+  selectEvent = event => {
+    console.log(event);
+    this.setState({
+      selectedEvent: event
+    });
+  };
 
   handleSearch = event => {
     this.setState({
@@ -65,14 +63,14 @@ class Home extends Component {
                   <th>Coordinates</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="events">
                 {this.state.events.map((event, i) => {
                   return (
                     <Event
                       key={i}
                       event={event}
                       i={i}
-                      //selectFlat={this.selectFlat}
+                      selectFlat={this.selectFlat}
                     />
                   );
                 })}
@@ -86,19 +84,7 @@ class Home extends Component {
 
           <div className="map">
             <h3>Map</h3>
-            <MapContainer>
-              {/* {this.state.events.map(event => {
-                return (
-                  <Marker
-                    key={event.id}
-                    lat={event.lat}
-                    lng={event.lng}
-                    name={event.name}
-                    //selected={event === this.state.selectEvent}
-                  />
-                );
-              })} */}
-            </MapContainer>
+            <MapContainer />
           </div>
         </div>
 
