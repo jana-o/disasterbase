@@ -25,9 +25,13 @@ export default {
   },
 
   getContactDetail(id) {
+    console.log("enter2", id);
     return service
       .get("/" + id)
-      .then(res => res.data)
+      .then(res => {
+        res.data;
+        console.log("AFTER", id);
+      })
       .catch(errHandler);
   },
 

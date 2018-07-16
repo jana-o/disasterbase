@@ -15,7 +15,7 @@ export default {
 
   getEvents() {
     return service
-      .get("/")
+      .get("/events/")
       .then(res => res.data)
       .catch(errHandler);
   },

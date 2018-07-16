@@ -27,12 +27,16 @@ const events = [
   {
     place: "4km SW of Volcano, Hawaii",
     mag: "2.48",
-    coords: [-155.272995, 19.4039993, 0.47]
+    coords: [-155.272995, 19.4039993, 0.47],
+    tsunami: 0,
+    eventType: "earthquake"
   },
   {
     place: "10km NE of Aguanga, CA",
     mag: "0.4",
-    coords: [-116.8005, 33.51, 5.16]
+    coords: [-116.8005, 33.51, 5.16],
+    tsunami: 0,
+    eventType: "earthquake"
   }
 ];
 

@@ -1,23 +1,51 @@
 import React, { Component } from "react";
 // import axios from "axios";
 import MapContainer from "./Map";
-import Earthquake from "./Earthquake";
+import Event from "./Event";
 import Graph from "./Graph";
 import About from "./About";
 import Kit from "./Kit";
 import Help from "./Help";
+import Searchbar from "./Searchbar";
+
+import { Table } from "reactstrap";
+
+import Marker from "./Marker";
 
 // /*global google*/
 
-// import api from "../api";
+import api from "../api";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      earthquakes: []
+      events: [],
+      contacts: []
+      // selectEvent: null,
+      // search: ""
     };
   }
+
+  componentDidMount() {
+    api.getEvents().then(events => {
+      this.setState({ events: events });
+    });
+  }
+
+  // selectEvent = event => {
+  //   console.log(event);
+  //   this.setState({
+  //     selectedEvent: event
+  //   });
+  // };
+
+  handleSearch = event => {
+    this.setState({
+      search: event.target.value
+      //events: this.state.events.filter(event => new RegExp())
+    });
+  };
 
   //var coords = results.features[i].geometry.coordinates;
 
@@ -30,25 +58,62 @@ class Home extends Component {
       <div className="Home">
         <Help />
 
-        <div className="Data">
-          <div className="Graph">
+        <div className="Search">
+          <Searchbar search={this.state.search} />
+
+          <div className="events">
+            <Table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Mag</th>
+                  <th>Coordinates</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.state.events.map((event, i) => {
+                  return (
+                    <Event
+                      key={i}
+                      event={event}
+                      //selectFlat={this.selectFlat}
+                    />
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div>
+
+          <div className="graph">
             <Graph />
           </div>
+
+          <div className="map">
+            <h3>Map</h3>
+            <MapContainer>
+              {/* {this.state.events.map(event => {
+                return (
+                  <Marker
+                    key={event.id}
+                    lat={event.lat}
+                    lng={event.lng}
+                    name={event.name}
+                    //selected={event === this.state.selectEvent}
+                  />
+                );
+              })} */}
+            </MapContainer>
+          </div>
+        </div>
+
+        <div className="Data">
           <div>
             <About />
           </div>
           <div>
             <Kit />
           </div>
-        </div>
-
-        <div className="earthquakes">
-          <Earthquake>Earthquake</Earthquake>
-        </div>
-
-        <div className="map">
-          <h3>Map</h3>
-          <MapContainer />
         </div>
       </div>
     );

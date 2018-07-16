@@ -31,7 +31,8 @@ class App extends Component {
     this.toggle = this.toggle.bind(this);
     (this.state = {
       isOpen: false,
-      earthquakes: []
+      events: [],
+      contacts: []
     }),
       api.loadUser();
   }

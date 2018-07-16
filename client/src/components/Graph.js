@@ -4,9 +4,11 @@ import React, { Component } from "react";
 
 class Graph extends Component {
   render() {
+    let event = this.props.event;
+
     return (
       <div>
-        <h3>Graphs</h3>
+        <h3>Graphs </h3>
       </div>
     );
   }

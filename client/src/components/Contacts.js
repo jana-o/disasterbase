@@ -71,6 +71,7 @@ class Contacts extends Component {
                   <Button outline color="primary" size="sm">
                     <Link
                       to={"/contacts/" + contact._id}
+                      id={contact._id}
                       style={{ color: "black" }}
                     >
                       Edit

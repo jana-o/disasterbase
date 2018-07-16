@@ -6,17 +6,18 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: [true, "The name is required"]
     },
-    mag: ""
-    // location: { type: { type: String }, coordinates: [Number] },
-    //tsunami: Boolean,
-    //eventType: { type: String, enum: ["earthquake", "vulcano"] }
+    mag: "",
+    coords: { type: { type: String }, coordinates: [Number] },
+    tsunami: Boolean,
+    code: "",
+    eventType: { type: String, enum: ["earthquake", "vulcano"] }
   },
   {
     timestamps: {
       createdAt: "created_at",
       updatedAt: "updated_at"
-    },
-    usePushEach: true
+    }
+    //usePushEach: true
   }
 );
 
