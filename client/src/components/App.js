@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import { Route, Link, Switch } from "react-router-dom";
-import Header from "./Layouts/header";
-
+// import Header from "./Layouts/header";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  Container
+} from "reactstrap";
 import Footer from "./Layouts/footer";
 import Home from "./Home";
 //import MapContainer from "./map";
@@ -9,39 +18,63 @@ import Home from "./Home";
 
 import Profile from "./Profile";
 import Contacts from "./Contacts";
-import AddContacts from "./AddContacts";
-import Secret from "./Secret";
 import Login from "./Login";
 import Signup from "./Signup";
 // import Map from "./Map";
 import api from "../api";
 import "./App.css";
+import ContactDetail from "./ContactDetail";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.toggle = this.toggle.bind(this);
+    (this.state = {
+      isOpen: false,
       earthquakes: []
-    };
-    api.loadUser();
+    }),
+      api.loadUser();
   }
 
   handleLogoutClick(e) {
     api.logout();
   }
 
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
     return (
       <div className="App">
-        <Header />
-        <header className="Header">
+        <Navbar color="secondary" light expand="md">
+          <NavbarBrand href="/">Disasterbase</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                {api.isLoggedIn() && (
+                  <NavLink href="/contacts">Contacts </NavLink>
+                )}
+              </NavItem>
+              <NavItem>
+                {api.isLoggedIn() && <NavLink href="/profile">Profile</NavLink>}
+              </NavItem>
+
+              <NavItem>
+                {api.isLoggedIn() && <NavLink href="/">Logout</NavLink>}
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        <Container>
+          {/* <header className="Header">
           <div className="Navbar" />
           <Link to="/">Home </Link>
 
-          <Link to="/contacts">Contacts </Link>
-          {api.isLoggedIn() && (
-            <Link to="/add-contact">Add Emergency Contact </Link>
-          )}
+          {api.isLoggedIn() && <Link to="/contacts">Contacts </Link>}
           <Link to="/profile">Profile </Link>
           {!api.isLoggedIn() && <Link to="/signup">Signup</Link>}
           {!api.isLoggedIn() && <Link to="/login">Login</Link>}
@@ -52,22 +85,20 @@ class App extends Component {
               Logout
             </Link>
           )}
+        </header> */}
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/profile" exact component={Profile} />
 
-          <Link to="/secret">Secret </Link>
-        </header>
-        <Switch>
-          <Route path="/" exact component={Home} />
+            <Route path="/contacts" exact component={Contacts} />
+            <Route path="/contacts/:id" exact component={ContactDetail} />
 
-          <Route path="/profile" exact component={Profile} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
 
-          <Route path="/contacts" component={Contacts} />
-          <Route path="/add-contacts" component={AddContacts} />
-
-          <Route path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
-          <Route path="/secret" component={Secret} />
-          <Route render={() => <h2>404</h2>} />
-        </Switch>
+            <Route render={() => <h2>404</h2>} />
+          </Switch>
+        </Container>
         <Footer />
       </div>
     );

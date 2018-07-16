@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import api from "../contact-api";
 import { Button, Table } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Contacts extends Component {
   state = { contacts: [] };
@@ -54,23 +55,26 @@ class Contacts extends Component {
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Delete</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>
-            {this.state.contacts.map(contact => (
-              <tr>
-                <th key={contact._id} scope="row">
-                  {this.state.contacts.length}
-                </th>
-                <td>
-                  <bold>{contact.name}</bold>
-                </td>
+            {this.state.contacts.map((contact, i) => (
+              <tr key={i}>
+                <td scope="row">{i + 1}</td>
+                <td style={{ fontWeight: "bold" }}>{contact.name}</td>
                 <td>{contact.email}</td>
-                <td>{contact.phone}</td>
+                <td>
+                  {contact.phone} {contact._id}
+                </td>
                 <td>
                   <Button outline color="primary" size="sm">
-                    Delete
+                    <Link
+                      to={"/contacts/" + contact._id}
+                      style={{ color: "black" }}
+                    >
+                      Edit
+                    </Link>
                   </Button>
                 </td>
               </tr>
@@ -102,7 +106,7 @@ class Contacts extends Component {
             placeholder="Phone"
           />
           <br />
-          <Button>Create new contact</Button>
+          <Button color="primary">Create new contact</Button>
         </form>
       </div>
     );

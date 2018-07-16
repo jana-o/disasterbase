@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const service = axios.create({
-  baseURL: `http://localhost:3030/api/`
+  baseURL: `http://localhost:3030/api/contacts`
 });
 
 const errHandler = err => {
@@ -14,11 +14,11 @@ export default {
   service: service,
 
   getContacts() {
-    console.log("ENTERING GETCONTACTS");
+    // console.log("ENTERING GETCONTACTS");
     return service
-      .get("contacts")
+      .get("/")
       .then(res => {
-        console.log("123456789", res);
+        // console.log("123456789", res);
         return res.data;
       })
       .catch(errHandler);
@@ -26,15 +26,15 @@ export default {
 
   getContactDetail(id) {
     return service
-      .get("contacts/" + id)
+      .get("/" + id)
       .then(res => res.data)
       .catch(errHandler);
   },
 
   addContact(data) {
-    console.log("ENTERING ADDCONTACTS");
+    //    console.log("ENTERING ADDCONTACTS");
     return service
-      .post("contacts", data)
+      .post("/", data)
       .then(res => {
         res.data;
         console.log("AFTER ADDING TO DB");
@@ -42,16 +42,20 @@ export default {
       .catch(errHandler);
   },
 
-  modifyContact(id, data) {
+  deleteContact(id) {
+    console.log("ENTERING delete", id);
     return service
-      .post("contacts/" + id, data)
-      .then(res => res.data)
+      .delete("/" + id)
+      .then(res => {
+        res.data;
+        console.log("delete from DB", id);
+      })
       .catch(errHandler);
   },
 
-  deleteContact(id) {
+  modifyContact(id, data) {
     return service
-      .delete("contacts/" + id)
+      .post("/" + id, data)
       .then(res => res.data)
       .catch(errHandler);
   }

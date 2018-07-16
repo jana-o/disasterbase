@@ -32,7 +32,8 @@ router.post("/", (req, res, next) => {
 });
 
 /* GET a single Contact. */
-router.get("/:id", (req, res, next) => {
+router.get("/contacts/:id", (req, res, next) => {
+  console.log("enter find id");
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
@@ -51,7 +52,6 @@ router.put("/:id", (req, res, next) => {
     res.status(400).json({ message: "Specified id is not valid" });
     return;
   }
-
   const updates = {
     name: req.body.name,
     email: req.body.email,
@@ -68,7 +68,7 @@ router.put("/:id", (req, res, next) => {
 });
 
 /* DELETE a Contact. */
-router.delete("/contacts/:id", (req, res, next) => {
+router.delete("/:id", (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
     res.status(400).json({ message: "Specified id is not valid" });
     return;

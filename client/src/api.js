@@ -41,6 +41,13 @@ export default {
       .catch(errHandler);
   },
 
+  getHelp(userId) {
+    return service
+      .get("/users/get-help/" + userId)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   login(email, password) {
     return service
       .post("/login", {
