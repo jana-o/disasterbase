@@ -41,12 +41,11 @@ class Home extends Component {
   handleSearch = event => {
     this.setState({
       search: event.target.value
-      //events: this.state.events.filter(event => new RegExp())
     });
   };
 
   render() {
-    console.log("This is this.state");
+    //console.log("This is this.state");
     let displayEvents = this.state.events.filter(event => {
       return (
         event.place.toUpperCase().indexOf(this.state.search.toUpperCase()) !==
@@ -90,30 +89,3 @@ class Home extends Component {
   }
 }
 export default Home;
-
-{
-  /* <div className="events">
-            <Table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Magnitude</th>
-                  <th>Coordinates</th>
-                </tr>
-              </thead>
-              <tbody className="events">
-                {this.state.events.map((event, i) => {
-                  return (
-                    <Event
-                      key={i}
-                      event={event}
-                      i={i}
-                      selectEvent={this.selectEvent}
-                    />
-                  );
-                })}
-              </tbody>
-            </Table>
-          </div> */
-}

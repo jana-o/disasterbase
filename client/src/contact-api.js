@@ -46,12 +46,12 @@ export default {
       .catch(errHandler);
   },
 
-  deleteContact(id) {
-    console.log("ENTERING delete", id);
+  deleteContact(_id) {
+    console.log("ENTERING delete", _id);
     return service
-      .delete("/" + id)
+      .delete("/")
       .then(res => {
-        console.log("delete from DB", id);
+        console.log("delete from DB", _id);
         return res.data;
       })
       .catch(errHandler);

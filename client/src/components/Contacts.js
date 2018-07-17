@@ -19,7 +19,7 @@ class Contacts extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault(); //need to see in console
+    event.preventDefault();
     console.log("submission");
     api
       .addContact({
@@ -32,7 +32,24 @@ class Contacts extends Component {
           name: "",
           email: "",
           phone: "",
-          contacts: [...this.state.contacts, data.newContact] //this array to update the view!
+          contacts: [...this.state.contacts, data.newContact]
+        });
+      })
+      .catch(err => console.log(err));
+  }
+
+  deleteContact(_id) {
+    //event.preventDefault();
+    console.log(_id, "1111");
+    api
+      .deleteContact(_id)
+      .then(data => {
+        this.setState({
+          name: "",
+          email: "",
+          phone: "",
+          id: null,
+          contacts: [...this.state.contacts]
         });
       })
       .catch(err => console.log(err));
@@ -68,6 +85,14 @@ class Contacts extends Component {
                     >
                       Edit
                     </Link>
+                  </Button>{" "}
+                  <Button
+                    outline
+                    color="primary"
+                    size="sm"
+                    onClick={this.deleteContact.bind(this, contact._id)}
+                  >
+                    Delete
                   </Button>
                 </td>
               </tr>

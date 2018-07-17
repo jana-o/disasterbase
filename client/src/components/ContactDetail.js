@@ -1,6 +1,7 @@
 import React from "react";
 import api from "../contact-api";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class ContactDetail extends React.Component {
   id = this.props.match.params.id;
@@ -27,22 +28,22 @@ class ContactDetail extends React.Component {
     });
   }
 
-  deleteContact(e) {
-    let id = this.props.match.params.id;
-    //event.preventDefault(); //need to see in console
-    console.log(id, "1111");
-    api
-      .deleteContact(id)
-      .then(data => {
-        this.setState({
-          name: "",
-          email: "",
-          phone: "",
-          id: null
-        });
-      })
-      .catch(err => console.log(err));
-  }
+  // deleteContact(e) {
+  //   let id = this.props.match.params.id;
+  //   //event.preventDefault(); //need to see in console
+  //   console.log(id, "1111");
+  //   api
+  //     .deleteContact(id)
+  //     .then(data => {
+  //       this.setState({
+  //         name: "",
+  //         email: "",
+  //         phone: "",
+  //         id: null
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 
   render() {
     return (
@@ -62,12 +63,10 @@ class ContactDetail extends React.Component {
           Edit
         </Button>
         {"     "}
-        <Button
-          color="primary"
-          size="sm"
-          onClick={event => this.deleteContact(event)}
-        >
-          Delete
+        <Button outline color="primary" size="sm">
+          <Link to={"/contacts"} style={{ color: "black" }}>
+            Back
+          </Link>
         </Button>
       </div>
     );
