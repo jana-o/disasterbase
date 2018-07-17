@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-// import api from "../contact-api";
-import "./About.css";
 
-class About extends Component {
+class Info extends Component {
   render() {
     return (
-      <div>
+      <div className="info">
         <h3>About</h3>
         <hr />
         <p>
@@ -25,4 +23,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Info;

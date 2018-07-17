@@ -8,8 +8,7 @@ $dark: #b2a9a4;
 
 // $light// $dark
 @import "bootstrap/scss/bootstrap";
-
-// You can put your own SCSS here
+//@import "video-react/styles/scss/video-react";
 
 body {
   font: 14px "Montserrat", Arial, sans-serif;
@@ -32,10 +31,6 @@ body {
   top: 0;
 }
 
-.About {
-  background-color: #7777;
-}
-
 hr {
   border-top: 2px solid $secondary;
   width: 50%;
@@ -45,4 +40,7 @@ hr {
   .map {
     position: relative !important;
   }
+}
+.about {
+  padding: 20px;
 }

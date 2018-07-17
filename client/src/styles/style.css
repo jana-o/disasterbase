@@ -6327,12 +6327,12 @@ body {
   position: fixed;
   top: 0; }
 
-.About {
-  background-color: #7777; }
-
 hr {
   border-top: 2px solid #d1d1d1;
   width: 50%; }
 
 .mapContainer .map {
   position: relative !important; }
+
+.about {
+  padding: 20px; }

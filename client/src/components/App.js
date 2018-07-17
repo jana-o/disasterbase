@@ -15,6 +15,7 @@ import Footer from "./Layouts/footer";
 import Home from "./Home";
 //import MapContainer from "./map";
 //import GoogleMapReact from "google-map-react";
+import About from "./About/About";
 
 import Profile from "./Profile";
 import Contacts from "./Contacts";
@@ -50,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar color="secondary" light expand="md">
+        <Navbar color="light" light expand="md">
           <NavbarBrand href="/">Disasterbase</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -63,7 +64,9 @@ class App extends Component {
               <NavItem>
                 {api.isLoggedIn() && <NavLink href="/profile">Profile</NavLink>}
               </NavItem>
-
+              <NavItem>
+                <NavLink href="/about">About</NavLink>
+              </NavItem>
               <NavItem>
                 {api.isLoggedIn() && <NavLink href="/">Logout</NavLink>}
               </NavItem>
@@ -73,6 +76,8 @@ class App extends Component {
         <Container>
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+
             <Route path="/profile" exact component={Profile} />
 
             <Route path="/contacts" exact component={Contacts} />

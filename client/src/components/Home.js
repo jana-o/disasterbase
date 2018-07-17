@@ -1,13 +1,11 @@
 import React, { Component } from "react";
 // import axios from "axios";
 import MapContainer from "./Map";
-import Event from "./Event";
-import Graph from "./Graph";
-import About from "./About";
-import Kit from "./Kit";
-import Help from "./Help";
 import Searchbar from "./Searchbar";
 import TableContainer from "./Table";
+
+import About from "./About/About.js";
+import Help from "./Help";
 
 // /*global google*/
 
@@ -73,15 +71,6 @@ class Home extends Component {
               events={displayEvents}
               // onMarkerClick={this.handleMarker}
             />
-          </div>
-        </div>
-
-        <div className="Data">
-          <div>
-            <About />
-          </div>
-          <div>
-            <Kit />
           </div>
         </div>
       </div>

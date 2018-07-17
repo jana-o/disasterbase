@@ -41,15 +41,14 @@ export default {
       .post("/", data)
       .then(res => {
         return res.data;
-        console.log("AFTER ADDING TO DB");
       })
       .catch(errHandler);
   },
 
   deleteContact(_id) {
-    console.log("ENTERING delete", _id);
+    console.log("ENTERING delete");
     return service
-      .delete("/")
+      .delete("/", _id)
       .then(res => {
         console.log("delete from DB", _id);
         return res.data;
