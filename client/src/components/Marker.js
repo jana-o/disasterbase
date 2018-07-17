@@ -1,18 +1,14 @@
-import React from "react";
-import "./Marker.css";
+// import React from "react";
+// import "./Marker.css";
 
-class Marker extends React.Component {
-  render() {
-    return <div className="marker">{this.props.mag}</div>;
-  }
-}
-
-export default Marker;
-
-// render() {
-//   let classes = "marker";
-//   if (this.props.selected) {
-//     classes += " selected";
+// class Marker extends React.Component {
+//   render() {
+//     let classes = "marker";
+//     // if (this.props.selected) {
+//     //   classes += " selected";
+//     // }
+//     return <div className={classes}>{this.props.text}</div>;
 //   }
-//   return <div className={classes}>{this.props.mag}</div>;
 // }
+
+// export default Marker;

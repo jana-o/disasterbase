@@ -7,8 +7,7 @@ import About from "./About";
 import Kit from "./Kit";
 import Help from "./Help";
 import Searchbar from "./Searchbar";
-
-import { Table } from "reactstrap";
+import TableContainer from "./Table";
 
 // /*global google*/
 
@@ -20,8 +19,9 @@ class Home extends Component {
     this.state = {
       events: [],
       contacts: [],
-      selectedEvent: null
-      // search: ""
+      singleEvent: [],
+      selectEvent: null,
+      search: ""
     };
   }
 
@@ -46,45 +46,34 @@ class Home extends Component {
   };
 
   render() {
+    console.log("This is this.state");
+    let displayEvents = this.state.events.filter(event => {
+      return (
+        event.place.toUpperCase().indexOf(this.state.search.toUpperCase()) !==
+        -1
+      );
+    });
     return (
       <div className="Home">
         <Help />
 
         <div className="Search">
-          <Searchbar search={this.state.search} />
+          <Searchbar handleEQSearch={this.handleSearch} />
 
           <div className="events">
-            <Table>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Magnitude</th>
-                  <th>Coordinates</th>
-                </tr>
-              </thead>
-              <tbody className="events">
-                {this.state.events.map((event, i) => {
-                  return (
-                    <Event
-                      key={i}
-                      event={event}
-                      i={i}
-                      selectFlat={this.selectFlat}
-                    />
-                  );
-                })}
-              </tbody>
-            </Table>
+            <TableContainer events={displayEvents} />
           </div>
 
-          <div className="graph">
+          {/* <div className="graph">
             <Graph />
-          </div>
+          </div> */}
 
           <div className="map">
             <h3>Map</h3>
-            <MapContainer />
+            <MapContainer
+              events={displayEvents}
+              // onMarkerClick={this.handleMarker}
+            />
           </div>
         </div>
 
@@ -101,3 +90,30 @@ class Home extends Component {
   }
 }
 export default Home;
+
+{
+  /* <div className="events">
+            <Table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Magnitude</th>
+                  <th>Coordinates</th>
+                </tr>
+              </thead>
+              <tbody className="events">
+                {this.state.events.map((event, i) => {
+                  return (
+                    <Event
+                      key={i}
+                      event={event}
+                      i={i}
+                      selectEvent={this.selectEvent}
+                    />
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div> */
+}

@@ -4,7 +4,7 @@ import { Button, Table } from "reactstrap";
 import { Link } from "react-router-dom";
 
 class Contacts extends Component {
-  state = { contacts: [] };
+  state = { name: "", phone: "", email: "", contacts: [] };
 
   componentDidMount() {
     api.getContacts().then(contacts => {
@@ -31,14 +31,8 @@ class Contacts extends Component {
         this.setState({
           name: "",
           email: "",
-          contacts: [
-            ...this.state.contacts,
-            {
-              name: this.state.name,
-              email: this.state.email,
-              phone: this.state.phone
-            }
-          ] //this array to update the view!
+          phone: "",
+          contacts: [...this.state.contacts, data.newContact] //this array to update the view!
         });
       })
       .catch(err => console.log(err));

@@ -66,16 +66,22 @@ router.get(
 router.post("/get-help/:id", (req, res, next) => {
   let userId = req.params.id;
   let transporter = nodemailer.createTransport({
-    service: "Gmail"
+    service: "Gmail",
+    auth: {
+      user: "birdyjana@gmail.com",
+      pass: "op9-NKZ-syE-mhL"
+    }
   });
-  transporter.sendMail({
-    from: '"Disasterbase" <info@disasterbase.com>',
-    to: email,
-    subject: subject,
-    text: message,
-    html: `<b>${message}</b>`
-  });
-  // .then => {res.json()}
+  transporter
+    .sendMail({
+      from: '"Disasterbase" <birdyjana@gmail.com>',
+      to: email,
+      subject: "Info from Disasterbase",
+      text: "Hello you have been notified",
+      html: `<b>${message}</b>`
+    })
+    .then(data => res.json(data))
+    .catch(error => next(error));
 });
 
 module.exports = router;

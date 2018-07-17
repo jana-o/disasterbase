@@ -6313,8 +6313,7 @@ body {
   font: 14px "Montserrat", Arial, sans-serif; }
 
 .Footer {
-  position: fixed;
-  height: 7vh;
+  height: 5vh;
   padding: 1vh;
   left: 0;
   bottom: 0;
@@ -6334,3 +6333,6 @@ body {
 hr {
   border-top: 2px solid #d1d1d1;
   width: 50%; }
+
+.mapContainer .map {
+  position: relative !important; }

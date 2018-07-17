@@ -16,8 +16,7 @@ body {
 }
 
 .Footer {
-  position: fixed;
-  height: 7vh;
+  height: 5vh;
   padding: 1vh;
   left: 0;
   bottom: 0;
@@ -40,4 +39,10 @@ body {
 hr {
   border-top: 2px solid $secondary;
   width: 50%;
+}
+
+.mapContainer {
+  .map {
+    position: relative !important;
+  }
 }

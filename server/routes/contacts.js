@@ -25,7 +25,8 @@ router.post("/", (req, res, next) => {
     .then(newContact => {
       res.json({
         message: "New Contact created!",
-        id: newContact._id
+        id: newContact._id,
+        newContact
       });
     })
     .catch(error => next(error));
@@ -46,6 +47,24 @@ router.get("/:id", (req, res, next) => {
     .catch(error => next(error));
 });
 
+/* DELETE a Contact. */
+router.delete("/:id", (req, res, next) => {
+  console.log("enter delete id");
+
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    res.status(400).json({ message: "Specified id is not valid" });
+    return;
+  }
+
+  Contact.remove({ _id: req.params.id })
+    .then(message => {
+      return res.json({
+        message: "Contact has been removed!"
+      });
+    })
+    .catch(error => next(error));
+});
+
 /* EDIT . */
 router.put("/:id", (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -62,22 +81,6 @@ router.put("/:id", (req, res, next) => {
     .then(contact => {
       res.json({
         message: "Contact updated successfully"
-      });
-    })
-    .catch(error => next(error));
-});
-
-/* DELETE a Contact. */
-router.delete("/:id", (req, res, next) => {
-  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-    res.status(400).json({ message: "Specified id is not valid" });
-    return;
-  }
-
-  Contact.remove({ _id: req.params.id })
-    .then(message => {
-      return res.json({
-        message: "Contact has been removed!"
       });
     })
     .catch(error => next(error));

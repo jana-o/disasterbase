@@ -25,11 +25,11 @@ export default {
   },
 
   getContactDetail(id) {
-    console.log("enter2", id);
+    //console.log("enter2", id);
     return service
       .get("/" + id)
       .then(res => {
-        console.log("AFTER", id);
+        // console.log("AFTER", id);
         return res.data;
       })
       .catch(errHandler);
@@ -40,7 +40,7 @@ export default {
     return service
       .post("/", data)
       .then(res => {
-        res.data;
+        return res.data;
         console.log("AFTER ADDING TO DB");
       })
       .catch(errHandler);
@@ -51,8 +51,8 @@ export default {
     return service
       .delete("/" + id)
       .then(res => {
-        res.data;
         console.log("delete from DB", id);
+        return res.data;
       })
       .catch(errHandler);
   },
@@ -60,7 +60,10 @@ export default {
   modifyContact(id, data) {
     return service
       .post("/" + id, data)
-      .then(res => res.data)
+      .then(res => {
+        console.log("edit in DB", id);
+        return res.data;
+      })
       .catch(errHandler);
   }
 };

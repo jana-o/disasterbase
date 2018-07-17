@@ -4,12 +4,13 @@ import { Button } from "reactstrap";
 
 class ContactDetail extends React.Component {
   id = this.props.match.params.id;
+
   constructor(props) {
     super(props);
     this.state = {
       name: "",
       email: "",
-      pictureUrl: ""
+      phone: ""
     };
   }
 
@@ -20,38 +21,30 @@ class ContactDetail extends React.Component {
       this.setState({
         name: contact.name,
         email: contact.email,
-        phone: contact.phone
+        phone: contact.phone,
+        id: contact._id
       });
     });
   }
 
-  deleteContact(id) {
-    // event.preventDefault(); //need to see in console
+  deleteContact(e) {
+    let id = this.props.match.params.id;
+    //event.preventDefault(); //need to see in console
     console.log(id, "1111");
     api
-      .deleteContact({
-        name: this.state.name,
-        email: this.state.email,
-        phone: this.state.phone,
-        id: this.state._id
-      })
+      .deleteContact(id)
       .then(data => {
         this.setState({
           name: "",
           email: "",
           phone: "",
-          id: ""
+          id: null
         });
       })
       .catch(err => console.log(err));
   }
 
-  // modifyContact()
-
   render() {
-    //let id = this.props.match.params.id;
-    //let contact = this.props.contact;
-
     return (
       <div className="ContactDetails">
         <h4>Contact Details</h4>
@@ -64,7 +57,7 @@ class ContactDetail extends React.Component {
           outline
           color="primary"
           size="sm"
-          onClick={event => this.modifyContact("id", event)}
+          onClick={event => this.modifyContact(event)}
         >
           Edit
         </Button>
@@ -72,7 +65,7 @@ class ContactDetail extends React.Component {
         <Button
           color="primary"
           size="sm"
-          onClick={event => this.deleteContact("id", event)}
+          onClick={event => this.deleteContact(event)}
         >
           Delete
         </Button>

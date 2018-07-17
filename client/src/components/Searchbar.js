@@ -9,8 +9,7 @@ class Searchbar extends Component {
           <input
             type="text"
             placeholder="Search"
-            value={this.props.search}
-            onChange={this.props.handleSearch}
+            onChange={this.props.handleEQSearch}
           />{" "}
         </div>
       </div>
@@ -19,3 +18,5 @@ class Searchbar extends Component {
 }
 
 export default Searchbar;
+
+// value={this.props.search}
