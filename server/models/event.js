@@ -6,10 +6,10 @@ const eventSchema = new mongoose.Schema(
       type: String,
       required: [true, "The name is required"]
     },
-    mag: "",
+    mag: Number,
     coords: { type: { type: String }, coordinates: [Number] },
     tsunami: Boolean,
-    code: "",
+    code: String,
     eventType: { type: String, enum: ["earthquake", "vulcano"] }
   },
   {

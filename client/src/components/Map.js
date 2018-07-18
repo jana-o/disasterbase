@@ -72,8 +72,14 @@ class MapContainer extends Component {
                 key={event._id}
                 name={event.name}
                 text={event.mag}
-                position={{ lng: event.coords[0], lat: event.coords[1] }}
-                value={{ lng: event.coords[0], lat: event.coords[1] }}
+                position={{
+                  lng: event.coords.coordinates[0],
+                  lat: event.coords.coordinates[1]
+                }}
+                value={{
+                  lng: event.coords.coordinates[0],
+                  lat: event.coords.coordinates[1]
+                }}
                 onClick={this.handleMarkerClick}
               />
             );

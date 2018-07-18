@@ -14,9 +14,9 @@ class Events extends React.Component {
         <td>{event.place}</td>
         <td>{event.mag}</td>
         <td>
-          {event.coords[0]}
+          {event.coords.coordinates[0]}
           {" - "}
-          {event.coords[1]}
+          {event.coords.coordinates[1]}
         </td>
       </tr>
     );

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import api from "../contact-api";
-import { Button } from "reactstrap";
+import { Button, Alert } from "reactstrap";
 
 class Help extends Component {
   constructor(props) {
@@ -26,6 +26,15 @@ class Help extends Component {
           {" "}
           Get Help
         </Button>
+        {/* <Button color="primary" size="sm">
+          <Link
+            to={"/get-help" + contact._id}
+            id={contact._id}
+            style={{ color: "black" }}
+          >
+            Edit
+          </Link>
+        </Button> */}
         {/* {this.state.true && ( */}
         {/* // <Alert color={this.state.messageType}>{this.state.message}</Alert>
         // )} */}

@@ -65,22 +65,23 @@ router.get(
 
 router.post("/get-help/:id", (req, res, next) => {
   let userId = req.params.id;
+  //let mail = _user.email
   let transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      user: "birdyjana@gmail.com",
-      pass: "op9-NKZ-syE-mhL"
+      user: process.env.GMAIL_USER,
+      pass: process.env.GMAIL_PW
     }
   });
   transporter
     .sendMail({
       from: '"Disasterbase" <birdyjana@gmail.com>',
-      to: email,
+      to: "<birdyjana@gmail.com>",
       subject: "Info from Disasterbase",
       text: "Hello you have been notified",
-      html: `<b>${message}</b>`
+      html: `<b>Hello you have been notified</b>`
     })
-    .then(data => res.json(data))
+    //.then(data => res.json(data))
     .catch(error => next(error));
 });
 
