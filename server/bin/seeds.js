@@ -37,6 +37,34 @@ const events = [
     coords: [-116.8005, 33.51, 5.16],
     tsunami: 0,
     eventType: "earthquake"
+  },
+  {
+    place: "46km SW of Tanaga Volcano, Alaska",
+    mag: "1.9",
+    coords: [-178.6171, 51.5905, 39.7],
+    tsunami: 0,
+    eventType: "earthquake"
+  },
+  {
+    place: "10km NE of Aguanga, CA",
+    mag: "0.4",
+    coords: [-116.8005, 33.51, 5.16],
+    tsunami: 0,
+    eventType: "earthquake"
+  },
+  {
+    place: "5km SSW of Volcano, Hawaii",
+    mag: "2.09",
+    coords: [-155.2611694, 19.3896675, -0.2],
+    tsunami: 0,
+    eventType: "earthquake"
+  },
+  {
+    place: "110km SSW of Idyllwild, CA",
+    mag: "0.2",
+    coords: [-116.7403333, 33.651, 11.8],
+    tsunami: 0,
+    eventType: "earthquake"
   }
 ];
 

@@ -4,10 +4,9 @@ import MapContainer from "./Map";
 import Searchbar from "./Searchbar";
 import TableContainer from "./Table";
 
-import About from "./About/About.js";
 import Help from "./Help";
 
-// /*global google*/
+/*global google*/
 
 import api from "../api";
 

@@ -1,5 +1,5 @@
 $primary: #fbdb4a;
-$secondary: #d1d1d1;
+$secondary: #f7f7f7;
 $dark: #b2a9a4;
 // $success
 // $info
@@ -33,7 +33,7 @@ body {
 
 hr {
   border-top: 2px solid $secondary;
-  width: 50%;
+  width: 100%;
 }
 
 .mapContainer {
@@ -43,4 +43,9 @@ hr {
 }
 .about {
   padding: 20px;
+}
+
+.event:hover {
+  background-color: #fbdb4a;
+  opacity: 0.9;
 }

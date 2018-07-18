@@ -1,6 +1,4 @@
 import React from "react";
-//import api from "../api";
-import "./Event.css";
 
 class Events extends React.Component {
   handleClick = () => {
