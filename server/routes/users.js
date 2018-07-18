@@ -3,11 +3,11 @@ const router = express.Router();
 const User = require("../models/user");
 const passport = require("passport");
 const config = require("../configs/index");
-
+const jwt = require("jwt-simple");
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
 const multer = require("multer");
-
+const nodemailer = require("nodemailer");
 const storage = cloudinaryStorage({
   cloudinary,
   folder: "my-images",
@@ -63,26 +63,41 @@ router.get(
   }
 );
 
-router.post("/get-help/:id", (req, res, next) => {
-  let userId = req.params.id;
-  //let mail = _user.email
-  let transporter = nodemailer.createTransport({
-    service: "Gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PW
-    }
-  });
-  transporter
-    .sendMail({
-      from: '"Disasterbase" <birdyjana@gmail.com>',
-      to: "<birdyjana@gmail.com>",
-      subject: "Info from Disasterbase",
-      text: "Hello you have been notified",
-      html: `<b>Hello you have been notified</b>`
-    })
-    //.then(data => res.json(data))
-    .catch(error => next(error));
-});
+router.get(
+  "/get-help",
+  passport.authenticate("jwt", config.jwtSession),
+  (req, res, next) => {
+    let userId = req.user.id;
+    User.findById(userId)
+      .populate("_contacts")
+      .then(user => {
+        console.log("contacts ", user._contacts);
+        let contacts = user._contacts;
+        contacts.forEach(contact => {
+          console.log(contact.email);
+          let transporter = nodemailer.createTransport({
+            service: "Gmail",
+            auth: {
+              user: process.env.GMAIL_USER,
+              pass: process.env.GMAIL_PW
+            }
+          });
+          transporter
+            .sendMail({
+              from: '"Disasterbase" <birdyjana@gmail.com>',
+              to: contact.email,
+              subject: "Info from Disasterbase",
+              text: "Hello you have been notified",
+              html: `<b>Hello you have been notified</b>`
+            })
+            .then(info => console.log(info));
+        });
+
+        res.json({ contacts });
+      })
+
+      .catch(error => next(error));
+  }
+);
 
 module.exports = router;

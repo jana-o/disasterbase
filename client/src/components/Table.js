@@ -1,20 +1,34 @@
 import React, { Component } from "react";
-import Event from "./Event";
-import { Table } from "reactstrap";
+//import Event from "./Event";
+import { BootstrapTable, TableHeaderColumn } from "react-bootstrap-table";
 
 class TableContainer extends Component {
-  // state = { events: [] };
-
-  // componentDidMount() {
-  //   this.setState({
-  //     events: this.props.events
-  //    });
-  //
-
   render() {
     return (
       <div className="events">
-        <Table>
+        <BootstrapTable
+          data={this.props.events.map((event, i) => {
+            return {
+              i: i + 1,
+              place: event.place,
+              coords: [
+                event.coords.coordinates[0],
+                " ",
+                event.coords.coordinates[1]
+              ]
+            };
+          })}
+          striped
+          hover
+          pagination
+        >
+          <TableHeaderColumn isKey dataField="i">
+            Number
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField="place">Place</TableHeaderColumn>
+          <TableHeaderColumn dataField="coords">Coordinates</TableHeaderColumn>
+        </BootstrapTable>,
+        {/* <Table>
           <thead>
             <tr>
               <th>#</th>
@@ -35,7 +49,7 @@ class TableContainer extends Component {
               );
             })}
           </tbody>
-        </Table>
+        </Table> */}
       </div>
     );
   }

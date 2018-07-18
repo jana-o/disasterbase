@@ -58,8 +58,6 @@ router.get("/update", (req, res, next) => {
   // console.log("Test");
 });
 
-//insertmany
-
 // Route to get all from DB
 router.get("/", (req, res, next) => {
   Event.find()

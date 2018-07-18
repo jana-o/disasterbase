@@ -1,20 +1,28 @@
 import React, { Component } from "react";
 //import api from "../contact-api";
 import { Button, Alert } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class Help extends Component {
   constructor(props) {
     super(props);
     this.state = {
       contacts: [],
-      needhelp: false
+      needhelp: false,
+      visible: false
     };
+    this.onDismiss = this.onDismiss.bind(this);
   }
 
-  getHelp = event => {
+  onDismiss() {
+    this.setState({ visible: false });
+  }
+
+  onGetHelp = event => {
     console.log(event);
     this.setState({
-      needhelp: true
+      needhelp: false,
+      visible: true
     });
   };
   //get contacts, send email
@@ -22,22 +30,25 @@ class Help extends Component {
   render() {
     return (
       <div>
-        <Button color="primary" size="sm" onClick={e => this.getHelp("id", e)}>
+        <Button
+          color="primary"
+          size="sm"
+          onClick={e => this.onGetHelp("id", e)}
+        >
           {" "}
           Get Help
         </Button>
-        {/* <Button color="primary" size="sm">
-          <Link
-            to={"/get-help" + contact._id}
-            id={contact._id}
-            style={{ color: "black" }}
-          >
-            Edit
+
+        <Alert
+          color="danger"
+          isOpen={this.state.visible}
+          toggle={this.onDismiss}
+        >
+          To alert my emergency contacts click here:{" "}
+          <Link to={"/get-help"} style={{ color: "black" }}>
+            GET HELP
           </Link>
-        </Button> */}
-        {/* {this.state.true && ( */}
-        {/* // <Alert color={this.state.messageType}>{this.state.message}</Alert>
-        // )} */}
+        </Alert>
       </div>
     );
   }

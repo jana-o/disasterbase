@@ -5,7 +5,7 @@ class Searchbar extends Component {
     return (
       <div>
         <div className="searchbar">
-          <h3>Searchbar </h3>
+          <h3>Search event </h3>
           <input
             type="text"
             placeholder="Search"

@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Map,
-  Marker,
-  Polygon,
-  Circle,
-  GoogleApiWrapper
-} from "google-maps-react";
+import { Map, Marker, Circle, GoogleApiWrapper } from "google-maps-react";
 /*global google*/
 
 class MapContainer extends Component {
@@ -78,7 +72,7 @@ class MapContainer extends Component {
             if (!googleMap) {
               return;
             }
-            console.log(googleMap);
+            //console.log(googleMap);
             this.gmap = googleMap;
           }}
         >
@@ -113,14 +107,6 @@ class MapContainer extends Component {
             value={"Test"}
             options={{}}
           />*/}
-          <Polygon
-            paths={triangleCoords}
-            strokeColor="#0000FF"
-            strokeOpacity={0.8}
-            strokeWeight={2}
-            fillColor="#0000FF"
-            fillOpacity={0.35}
-          />
         </Map>
       </div>
     );

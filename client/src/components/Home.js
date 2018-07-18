@@ -6,8 +6,6 @@ import TableContainer from "./Table";
 
 import Help from "./Help";
 
-/*global google*/
-
 import api from "../api";
 
 class Home extends Component {

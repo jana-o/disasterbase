@@ -41,9 +41,9 @@ export default {
       .catch(errHandler);
   },
 
-  getHelp(userId) {
+  getHelp() {
     return service
-      .get("/users/get-help/" + userId)
+      .get("/users/get-help")
       .then(res => res.data)
       .catch(errHandler);
   },

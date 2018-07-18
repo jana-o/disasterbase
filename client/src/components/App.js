@@ -16,6 +16,7 @@ import Home from "./Home";
 //import MapContainer from "./map";
 //import GoogleMapReact from "google-map-react";
 import About from "./About/About";
+import GetHelp from "./GetHelp";
 
 import Profile from "./Profile";
 import Contacts from "./Contacts";
@@ -78,6 +79,7 @@ class App extends Component {
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/update" />
+            <Route path="/get-help" exact component={GetHelp} />
 
             <Route path="/profile" exact component={Profile} />
 

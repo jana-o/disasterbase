@@ -8,6 +8,7 @@ class Contacts extends Component {
 
   componentDidMount() {
     api.getContacts().then(contacts => {
+      console.log("contacts in fron ", contacts);
       this.setState({ contacts: contacts });
     });
   }
