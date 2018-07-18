@@ -48,12 +48,21 @@ class MapContainer extends Component {
     };
 
     let { center, zoom } = this.state;
-
+    let long = -155.293167;
+    let lat = -19.4003334;
+    let m = 5;
     const triangleCoords = [
-      { lat: 25.774, lng: -80.19 },
-      { lat: 18.466, lng: -56.118 },
-      { lat: 32.321, lng: -54.757 },
-      { lat: 25.774, lng: -70.19 }
+      { lat: lat + m, lng: long },
+      { lat: lat, lng: long + m },
+      { lat: lat - m, lng: long },
+      { lat: lat, lng: long - m }
+    ];
+
+    const triangleCoordsx = [
+      { lat: 25.774, lng: -54.19 },
+      { lat: 28.774, lng: -61.19 },
+      { lat: 27.321, lng: -54.757 },
+      { lat: 25.774, lng: -50.19 }
     ];
 
     return (
@@ -65,6 +74,13 @@ class MapContainer extends Component {
           zoom={zoom}
           center={center}
           onZoom_changed={this.handleZoomChange}
+          ref={googleMap => {
+            if (!googleMap) {
+              return;
+            }
+            console.log(googleMap);
+            this.gmap = googleMap;
+          }}
         >
           {this.props.events.map(event => {
             return (
@@ -84,6 +100,19 @@ class MapContainer extends Component {
               />
             );
           })}
+
+          {/* <Circle
+            position={{ lng: 45, lat: 3 }}
+            center={{ lng: 45, lat: 3 }}
+            radius={30000000}
+            strokeColor="#0000FF"
+            strokeOpacity={0.8}
+            strokeWeight={2}
+            fillColor="#0000FF"
+            fillOpacity={0.35}
+            value={"Test"}
+            options={{}}
+          />*/}
           <Polygon
             paths={triangleCoords}
             strokeColor="#0000FF"
@@ -92,13 +121,6 @@ class MapContainer extends Component {
             fillColor="#0000FF"
             fillOpacity={0.35}
           />
-          {/* <Circle
-            strokeColor="#0000FF"
-            strokeOpacity={0.8}
-            strokeWeight={2}
-            fillColor="#0000FF"
-            fillOpacity={0.35}
-          /> */}
         </Map>
       </div>
     );

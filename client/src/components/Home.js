@@ -56,10 +56,6 @@ class Home extends Component {
         <div className="Search">
           <Searchbar handleEQSearch={this.handleSearch} />
 
-          <div className="events">
-            <TableContainer events={displayEvents} />
-          </div>
-
           {/* <div className="graph">
             <Graph />
           </div> */}
@@ -70,6 +66,10 @@ class Home extends Component {
               events={displayEvents}
               // onMarkerClick={this.handleMarker}
             />
+          </div>
+
+          <div className="events">
+            <TableContainer events={displayEvents} />
           </div>
         </div>
       </div>
