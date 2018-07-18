@@ -49,7 +49,7 @@ class Contacts extends Component {
           email: "",
           phone: "",
           id: null,
-          contacts: [...this.state.contacts]
+          contacts: this.state.contacts.filter(contact => contact._id !== _id)
         });
       })
       .catch(err => console.log(err));

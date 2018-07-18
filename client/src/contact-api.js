@@ -48,7 +48,7 @@ export default {
   deleteContact(_id) {
     console.log("ENTERING delete");
     return service
-      .delete("/", _id)
+      .delete("/" + _id)
       .then(res => {
         console.log("delete from DB", _id);
         return res.data;

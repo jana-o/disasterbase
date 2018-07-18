@@ -6,7 +6,7 @@ var mongoose = require("mongoose");
 
 // todo make UPDATE BUTTON for earthquake
 const earthquakeService = axios.create({
-  baseURL: `https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&`
+  baseURL: `https://earthquake.usgs.gov/fdsnws/event/1/`
 });
 
 function sanitizeData(data) {
@@ -23,7 +23,8 @@ function sanitizeData(data) {
           data.features[i].geometry.coordinates[1]
         ]
       },
-      code: data.features[i].properties.code
+      code: data.features[i].properties.code,
+      date: new Date(data.features[i].properties.time)
     };
     earthquakes.push(quake);
   }
@@ -38,15 +39,23 @@ function sanitizeData(data) {
 
 // Route to get all API
 router.get("/update", (req, res, next) => {
-  var starttime = Date - 14;
-  var endtime = Date;
-
+  var starttime = req.query.starttime;
+  var endtime = req.query.endtime;
   earthquakeService
-    .get(`starttime=2018-07-01&endtime=2018-07-13`)
-    .then(json => res.json(sanitizeData(json.data)))
+    .get(`query?format=geojson&starttime=${starttime}&endtime=${endtime}`)
+    .then(json => {
+      Event.deleteMany({
+        $and: [
+          { date: { $gt: new Date(starttime) } },
+          { date: { $lt: new Date(endtime) } }
+        ]
+      })
+        .then(() => Event.create(sanitizeData(json.data)))
+        .then(events => res.json(events));
+    })
     .catch(err => next(err));
-  //res.json(data);
-  console.log("Test");
+  // //res.json(data);
+  // console.log("Test");
 });
 
 //insertmany

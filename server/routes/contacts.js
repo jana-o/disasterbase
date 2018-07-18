@@ -48,8 +48,8 @@ router.get("/:id", (req, res, next) => {
 });
 
 /* DELETE a Contact. */
-router.delete("/", (req, res, next) => {
-  console.log("enter delete id 333333");
+router.delete("/:id", (req, res, next) => {
+  let id = req.params.id;
 
   Contact.findByIdAndRemove({ _id: id })
     .then(message => {
