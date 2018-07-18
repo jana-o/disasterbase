@@ -84,7 +84,7 @@ router.get(
           });
           transporter
             .sendMail({
-              from: '"Notification" <birdyjana@gmail.com>',
+              from: '"Notification" <GMAIL_USER>',
               to: contact.email,
               subject: "Info regarding your emergency contact",
               text:

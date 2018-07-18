@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Map, Marker, Circle, GoogleApiWrapper } from "google-maps-react";
-/*global google*/
+import { Map, GoogleApiWrapper, Polygon } from "google-maps-react";
+///*global google*/
 
 class MapContainer extends Component {
   state = {
@@ -17,10 +17,10 @@ class MapContainer extends Component {
   }
 
   handleMarkerClick = marker => {
-    //console.log("dgdfgdf", marker);
+    console.log("dgdfgdf", marker);
     this.setState({
       center: marker.position,
-      zoom: 5
+      zoom: 7
     });
   };
 
@@ -36,6 +36,46 @@ class MapContainer extends Component {
     });
   };
 
+  getPath(coordinates) {
+    let m = 5;
+    return [
+      [
+        {
+          lat: coordinates[1] + m,
+          lng: coordinates[0]
+        },
+        {
+          lat: coordinates[1] + (m * Math.sqrt(2)) / 2,
+          lng: coordinates[0] + (m * Math.sqrt(2)) / 2
+        },
+        {
+          lat: coordinates[1],
+          lng: coordinates[0] + m
+        },
+        {
+          lat: coordinates[1] - (m * Math.sqrt(2)) / 2,
+          lng: coordinates[0] + (m * Math.sqrt(2)) / 2
+        },
+        {
+          lat: coordinates[1] - m,
+          lng: coordinates[0]
+        },
+        {
+          lat: coordinates[1] - (m * Math.sqrt(2)) / 2,
+          lng: coordinates[0] - (m * Math.sqrt(2)) / 2
+        },
+        {
+          lat: coordinates[1],
+          lng: coordinates[0] - m
+        },
+        {
+          lat: coordinates[1] + (m * Math.sqrt(2)) / 2,
+          lng: coordinates[0] - (m * Math.sqrt(2)) / 2
+        }
+      ]
+    ];
+  }
+
   render() {
     let style = {
       width: "100%",
@@ -44,14 +84,20 @@ class MapContainer extends Component {
     };
 
     let { center, zoom } = this.state;
-    let long = -155.293167;
-    let lat = -19.4003334;
-    let m = 5;
+    // let long = -155.293167;
+    // let lat = -19.4003334;
+    // let m = 5;
     // const triangleCoords = [
     //   { lat: lat + m, lng: long },
     //   { lat: lat, lng: long + m },
     //   { lat: lat - m, lng: long },
     //   { lat: lat, lng: long - m }
+    // ];
+
+    // const polygon = [
+    //   { lat: 37.789411, lng: -122.422116 },
+    //   { lat: 37.785757, lng: -122.421333 },
+    //   { lat: 37.789352, lng: -122.415346 }
     // ];
 
     return (
@@ -71,7 +117,7 @@ class MapContainer extends Component {
             this.gmap = googleMap;
           }}
         >
-          {this.props.events.map(event => {
+          {/* {this.props.events.map(event => {
             return (
               <Marker
                 key={event._id}
@@ -87,6 +133,20 @@ class MapContainer extends Component {
                 }}
                 onClick={this.handleMarkerClick}
                 onMouseover={this.onMouseoverMarker}
+              />
+            );
+          })} */}
+
+          {this.props.events.map(event => {
+            return (
+              <Polygon
+                fillColor="#0000FF"
+                fillOpacity={0.2}
+                paths={this.getPath(event.coords.coordinates)}
+                strokeColor="#0000FF"
+                strokeOpacity={0.0}
+                strokeWeight={2}
+                onClick={this.handleMarkerClick}
               />
             );
           })}
