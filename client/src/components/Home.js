@@ -40,7 +40,6 @@ class Home extends Component {
   };
 
   render() {
-    //console.log("This is this.state");
     let displayEvents = this.state.events.filter(event => {
       return (
         event.place.toUpperCase().indexOf(this.state.search.toUpperCase()) !==

@@ -21,16 +21,18 @@ class MapContainer extends Component {
     this.setState({
       center: marker.position,
       zoom: 5
-      // singleEvent: event.target.value
     });
   };
+
+  // onMouseoverMarker = marker => {
+  //   console.log("dgdfgdf", marker);
+  //   name = this.props.name;
+  // };
 
   handleZoomChange = e => {
     console.log("zoom", e);
     this.setState({
-      // center: marker.position,
       zoom: e.zoom
-      // singleEvent: event.target.value
     });
   };
 
@@ -45,19 +47,12 @@ class MapContainer extends Component {
     let long = -155.293167;
     let lat = -19.4003334;
     let m = 5;
-    const triangleCoords = [
-      { lat: lat + m, lng: long },
-      { lat: lat, lng: long + m },
-      { lat: lat - m, lng: long },
-      { lat: lat, lng: long - m }
-    ];
-
-    const triangleCoordsx = [
-      { lat: 25.774, lng: -54.19 },
-      { lat: 28.774, lng: -61.19 },
-      { lat: 27.321, lng: -54.757 },
-      { lat: 25.774, lng: -50.19 }
-    ];
+    // const triangleCoords = [
+    //   { lat: lat + m, lng: long },
+    //   { lat: lat, lng: long + m },
+    //   { lat: lat - m, lng: long },
+    //   { lat: lat, lng: long - m }
+    // ];
 
     return (
       <div className="mapContainer">
@@ -91,11 +86,22 @@ class MapContainer extends Component {
                   lat: event.coords.coordinates[1]
                 }}
                 onClick={this.handleMarkerClick}
+                onMouseover={this.onMouseoverMarker}
               />
             );
           })}
+        </Map>
+      </div>
+    );
+  }
+}
 
-          {/* <Circle
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyAUTV-rXp0MkyXfDftokR4tFGFqq0lb2zc"
+})(MapContainer);
+
+{
+  /* <Circle
             position={{ lng: 45, lat: 3 }}
             center={{ lng: 45, lat: 3 }}
             radius={30000000}
@@ -106,13 +112,5 @@ class MapContainer extends Component {
             fillOpacity={0.35}
             value={"Test"}
             options={{}}
-          />*/}
-        </Map>
-      </div>
-    );
-  }
+          />*/
 }
-
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyAUTV-rXp0MkyXfDftokR4tFGFqq0lb2zc"
-})(MapContainer);

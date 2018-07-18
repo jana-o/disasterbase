@@ -84,10 +84,11 @@ router.get(
           });
           transporter
             .sendMail({
-              from: '"Disasterbase" <birdyjana@gmail.com>',
+              from: '"Notification" <birdyjana@gmail.com>',
               to: contact.email,
-              subject: "Info from Disasterbase",
-              text: "Hello you have been notified",
+              subject: "Info regarding your emergency contact",
+              text:
+                "Hello, your friend has added to you to his emergency contact. Recent events has let us to believe that your friend could be involved in an earthquake. Please stay calm and turn on the news for more information. Take care.",
               html: `<b>Hello you have been notified</b>`
             })
             .then(info => console.log(info));

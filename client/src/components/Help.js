@@ -44,8 +44,13 @@ class Help extends Component {
           isOpen={this.state.visible}
           toggle={this.onDismiss}
         >
-          To alert my emergency contacts click here:{" "}
-          <Link to={"/get-help"} style={{ color: "black" }}>
+          <h4 className="alert-heading">SOS?</h4>
+          To notify your emergency contacts click here: <hr />
+          <Link
+            to={"/get-help"}
+            style={{ color: "black" }}
+            className="alert-link"
+          >
             GET HELP
           </Link>
         </Alert>

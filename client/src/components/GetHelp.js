@@ -10,6 +10,7 @@ import {
   Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { userInfo } from "os";
 
 class GetHelp extends Component {
   componentDidMount() {
@@ -22,21 +23,24 @@ class GetHelp extends Component {
     return (
       <div>
         <Card>
-          <CardImg
+          {/* <CardImg
             top
             width="50%"
-            src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180"
+            src="../styles/email.png"
             alt="Card image cap"
-          />
+          /> */}
           <CardBody>
-            <CardTitle>Help is on its way</CardTitle>
-            <CardSubtitle>Hi Name,</CardSubtitle>
+            <CardTitle>Help is on its way!</CardTitle>
+            <CardSubtitle>
+              We have notified your emergency contacts.
+            </CardSubtitle>
+            <hr />
             <CardText>
-              We have notified your emergency contacts.<br /> Remember:<br />
+              Take care of yourself and remember:<br />
               If you are indoors: stay there! Look for cover, stay clear of
               exterior walls, glass.<br />
               If you're outside: get into the open.<br />
-              Beware of potential tsunamis or landslides
+              Beware of potential tsunamis or landslides.
             </CardText>
             <Button color="primary">
               <Link to={"/"} style={{ color: "black" }}>
