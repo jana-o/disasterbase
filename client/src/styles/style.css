@@ -211,9 +211,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit; }
-input{
-  margin: 2px;
-}
+
 button,
 input {
   overflow: visible; }
@@ -6338,31 +6336,8 @@ hr {
   padding: 20px; }
 
 .kit {
-  margin-top:  20px;
-  padding: 20px; 
-}
-.kitlist {
-  text-align: left;
-  padding: 20px; 
-}
-.playerlist {
-  text-align: left;
-  padding: 20px; 
-}
-.profile{
-  text-align: left;
-}
-.features{
-  margin-top:  20px;
-  padding: 20px; 
-}
+  text-align: left; }
 
-.addnewcontact{
-  margin-top:  50px;
-}
-.createcontact{
-  margin-top:10px;
-}
 .cardtext {
   text-align: left; }
 

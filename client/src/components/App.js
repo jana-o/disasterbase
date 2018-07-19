@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 // import Header from "./Layouts/header";
 import {
   Collapse,
@@ -59,17 +59,45 @@ class App extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 {api.isLoggedIn() && (
-                  <NavLink href="/contacts">Contacts </NavLink>
+                  <NavLink to="/contacts">Contacts </NavLink>
                 )}
               </NavItem>
               <NavItem>
-                {api.isLoggedIn() && <NavLink href="/profile">Profile</NavLink>}
+                {api.isLoggedIn() && (
+                  <NavLink tag={Link} to="/profile">
+                    Profile
+                  </NavLink>
+                )}
               </NavItem>
               <NavItem>
-                <NavLink href="/about">About</NavLink>
+                <NavLink tag={Link} to="/about">
+                  About
+                </NavLink>
               </NavItem>
               <NavItem>
-                {api.isLoggedIn() && <NavLink href="/">Logout</NavLink>}
+                {api.isLoggedIn() && (
+                  <NavLink
+                    tag={Link}
+                    to="/"
+                    onClick={() => this.handleLogoutClick()}
+                  >
+                    Logout
+                  </NavLink>
+                )}
+              </NavItem>
+              <NavItem>
+                {!api.isLoggedIn() && (
+                  <NavLink tag={Link} to="/login">
+                    Login
+                  </NavLink>
+                )}
+              </NavItem>
+              <NavItem>
+                {!api.isLoggedIn() && (
+                  <NavLink tag={Link} to="/signup">
+                    Signup
+                  </NavLink>
+                )}
               </NavItem>
             </Nav>
           </Collapse>
