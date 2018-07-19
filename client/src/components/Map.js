@@ -41,7 +41,7 @@ class MapContainer extends Component {
     this.circlesArray.push(
       new google.maps.Circle({
         fillColor: "#FF0000",
-        fillOpacity: 0.4,
+        fillOpacity: 0.7,
         strokeWeight: 0,
         center: {
           lat: coords[1],

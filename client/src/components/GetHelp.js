@@ -10,7 +10,6 @@ import {
   Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import logo from "../styles/email.png";
 
 class GetHelp extends Component {
   componentDidMount() {
@@ -27,8 +26,14 @@ class GetHelp extends Component {
           {/* <CardImg top width="100%" src={logo} alt="Card image cap" /> */}
           <CardBody>
             <CardTitle>Help is on its way!</CardTitle>
+            <img
+              width="10%"
+              src="https://res.cloudinary.com/dgjh08wsa/image/upload/v1532018568/bird-graphic.png"
+              className="App-logo"
+              alt="logo"
+            />
             <CardSubtitle>
-              We have notified your emergency contacts.
+              We have notified your emergency contacts!
             </CardSubtitle>
             <hr />
             <CardText classname="cardtext">

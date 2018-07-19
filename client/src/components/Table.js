@@ -14,7 +14,7 @@ class TableContainer extends Component {
   render() {
     return (
       <div className="events">
-        <div>Sort</div>
+        <div />
         <BootstrapTable
           data={this.props.events.map((event, i) => {
             return {
@@ -51,29 +51,7 @@ class TableContainer extends Component {
           <TableHeaderColumn dataField="coords" dataSort={true}>
             Coordinates
           </TableHeaderColumn>
-        </BootstrapTable>,
-        {/* <Table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Name</th>
-              <th>Magnitude</th>
-              <th>Coordinates</th>
-            </tr>
-          </thead>
-          <tbody className="events">
-            {this.props.events.map((event, i) => {
-              return (
-                <Event
-                  key={i}
-                  event={event}
-                  i={i}
-                  selectEvent={this.selectEvent}
-                />
-              );
-            })}
-          </tbody>
-        </Table> */}
+        </BootstrapTable>
       </div>
     );
   }
