@@ -17,10 +17,9 @@ class About extends Component {
         </div>
         <div>
           <Kit />
-        </div>
-        <div>
           <Player>Test</Player>
         </div>
+        <div />
       </div>
     );
   }
