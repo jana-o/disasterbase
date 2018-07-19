@@ -15,7 +15,7 @@ class About extends Component {
         <div>
           <Features />
         </div>
-        <div>
+        <div className="row">
           <Kit />
           <Player />
         </div>

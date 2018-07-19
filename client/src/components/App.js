@@ -59,7 +59,9 @@ class App extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 {api.isLoggedIn() && (
-                  <NavLink to="/contacts">Contacts </NavLink>
+                  <NavLink tag={Link} to="/contacts">
+                    Contacts
+                  </NavLink>
                 )}
               </NavItem>
               <NavItem>

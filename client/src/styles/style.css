@@ -6361,3 +6361,13 @@ hr {
   border-top: 4px solid \9;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent; }
+
+.helpbutton {
+  text-align: right; }
+
+.eventstable {
+  margin-top: 20px; }
+
+.searchbar {
+  text-align: left;
+  margin-bottom: 5px; }

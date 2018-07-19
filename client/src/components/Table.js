@@ -13,7 +13,7 @@ class TableContainer extends Component {
   }
   render() {
     return (
-      <div className="events">
+      <div className="eventstable">
         <div />
         <BootstrapTable
           data={this.props.events.map((event, i) => {
@@ -46,10 +46,6 @@ class TableContainer extends Component {
           </TableHeaderColumn>
           <TableHeaderColumn dataField="mag" dataSort={true}>
             Magnitude
-          </TableHeaderColumn>
-
-          <TableHeaderColumn dataField="coords" dataSort={true}>
-            Coordinates
           </TableHeaderColumn>
         </BootstrapTable>
       </div>

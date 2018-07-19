@@ -130,21 +130,6 @@ class MapContainer extends Component {
           {this.props.events.map((event, i) => {
             this.addMapCircle(event.coords.coordinates, event.mag);
           })}
-
-          {/* {this.props.events.map(event => {
-            return (
-              <Polygon
-                fillColor="#ff0000"
-                fillOpacity={0.2}
-                paths={this.getPath(event.coords.coordinates)}
-                strokeColor="#0000FF"
-                strokeOpacity={0.0}
-                strokeWeight={2}
-                onClick={this.handleMarkerClick}
-                // onMouseover={this.onMouseoverMarker}
-              />
-            );
-          })} */}
         </Map>
       </div>
     );
@@ -213,3 +198,19 @@ export default GoogleApiWrapper({
 //   lat: coordinates[1] + (m * m) / Math.sqrt(0.966),
 //   lng: coordinates[0] + m * 0.966
 // },
+{
+  /* {this.props.events.map(event => {
+            return (
+              <Polygon
+                fillColor="#ff0000"
+                fillOpacity={0.2}
+                paths={this.getPath(event.coords.coordinates)}
+                strokeColor="#0000FF"
+                strokeOpacity={0.0}
+                strokeWeight={2}
+                onClick={this.handleMarkerClick}
+                // onMouseover={this.onMouseoverMarker}
+              />
+            );
+          })} */
+}

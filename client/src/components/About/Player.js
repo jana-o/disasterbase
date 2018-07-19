@@ -16,7 +16,7 @@ class Player extends React.Component {
     };
 
     return (
-      <div className="player col-sm-6">
+      <div className="player col-sm-6 mt-3">
         <h5>HOW TO....</h5>
         <hr />
         <YouTube videoId="BLEPakj1YTY" opts={opts} onReady={this._onReady} />

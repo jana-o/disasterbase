@@ -49,16 +49,10 @@ class Home extends Component {
     return (
       <div className="Home">
         <Help />
-
         <div className="Search">
           <Searchbar handleEQSearch={this.handleSearch} />
 
-          {/* <div className="graph">
-            <Graph />
-          </div> */}
-
           <div className="map">
-            <h3>Map</h3>
             <MapContainer
               events={displayEvents}
               // onMarkerClick={this.handleMarker}
@@ -74,3 +68,9 @@ class Home extends Component {
   }
 }
 export default Home;
+
+{
+  /* <div className="graph">
+            <Graph />
+          </div> */
+}

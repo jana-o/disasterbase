@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Kit extends Component {
   render() {
     return (
-      <div className="kit col-sm-6">
+      <div className="kit col-sm-6 mt-3">
         <h5>DISASTER SURVIVAL KIT.</h5>
         <hr />
         <ul className="kitlist">

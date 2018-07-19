@@ -30,14 +30,12 @@ class Help extends Component {
   render() {
     return (
       <div>
-        <Button
-          color="primary"
-          size="sm"
-          onClick={e => this.onGetHelp("id", e)}
-        >
-          {" "}
-          Get Help
-        </Button>
+        <div className="helpbutton">
+          <Button color="primary" onClick={e => this.onGetHelp("id", e)}>
+            {" "}
+            Get Help
+          </Button>
+        </div>
 
         <Alert
           color="danger"
