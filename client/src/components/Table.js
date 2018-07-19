@@ -21,11 +21,7 @@ class TableContainer extends Component {
               i: i + 1,
               place: event.place,
               mag: event.mag,
-              coords: [
-                event.coords.coordinates[0],
-                " ",
-                event.coords.coordinates[1]
-              ]
+              coords: [event.coords.coordinates[0], event.coords.coordinates[1]]
             };
           })}
           ref="table"
@@ -46,6 +42,9 @@ class TableContainer extends Component {
           </TableHeaderColumn>
           <TableHeaderColumn dataField="mag" dataSort={true}>
             Magnitude
+          </TableHeaderColumn>
+          <TableHeaderColumn dataField="coords" dataSort={true}>
+            Long, Lat
           </TableHeaderColumn>
         </BootstrapTable>
       </div>
