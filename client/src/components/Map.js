@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Map, GoogleApiWrapper, Polygon } from "google-maps-react";
-///*global google*/
+/*global google*/
 
 class MapContainer extends Component {
   state = {
@@ -35,6 +35,20 @@ class MapContainer extends Component {
       zoom: e.zoom
     });
   };
+
+  addMapCircle(coords, mag) {
+    new google.maps.Circle({
+      fillColor: "#FF0000",
+      fillOpacity: 0.4,
+      strokeWeight: 0,
+      center: {
+        lat: coords[1],
+        lng: coords[0]
+      },
+      radius: 15000 * mag,
+      map: this.gmap.map
+    });
+  }
 
   getPath(coordinates) {
     let m = 3;
@@ -124,6 +138,10 @@ class MapContainer extends Component {
             this.gmap = googleMap;
           }}
         >
+          {/* {this.props.events.map((event, i) => {
+            this.addMapCircle(event.coords.coordinates, event.mag);
+          })} */}
+
           {this.props.events.map(event => {
             return (
               <Polygon
