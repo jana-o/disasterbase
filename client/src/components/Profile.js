@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../api";
+import { Button } from "reactstrap";
 
 class Profile extends Component {
   constructor(props) {
@@ -23,24 +24,30 @@ class Profile extends Component {
   }
   render() {
     return (
-      <div className="Profile">
-        <h2>Profile</h2>
-        Name: {this.state.name} <br />
-        Email: {this.state.email} <br />
-        {this.state.pictureUrl && (
-          <img
-            src={this.state.pictureUrl}
-            style={{
-              height: 200
-            }}
-            alt="foto"
-          />
-        )}
-        {this.state.isLoading && <div>Loading...</div>}
-        <form onSubmit={e => this.handleSubmit(e)}>
-          <input type="file" onChange={e => this.handleChange(e)} /> <br />
-          <button type="submit">Save new profile picture</button>
-        </form>
+      <div>
+        <h2>PROFILE.</h2>
+        <div className="profile">
+          <hr />
+          <h5>Hi {this.state.name} !</h5>
+          Name: {this.state.name} <br />
+          Email: {this.state.email} <br />
+          {this.state.pictureUrl && (
+            <img
+              src={this.state.pictureUrl}
+              style={{
+                height: 200
+              }}
+              alt="foto"
+            />
+          )}
+          {this.state.isLoading && <div>Loading...</div>}
+          <form onSubmit={e => this.handleSubmit(e)}>
+            <input type="file" onChange={e => this.handleChange(e)} /> <br />
+            <Button type="submit" color="primary" size="sm">
+              Save new profile picture
+            </Button>
+          </form>
+        </div>
       </div>
     );
   }

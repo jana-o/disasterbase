@@ -8,7 +8,7 @@ import Player from "./Player";
 class About extends Component {
   render() {
     return (
-      <div className="about">
+      <div className="about ">
         <div>
           <Info />
         </div>
@@ -17,7 +17,7 @@ class About extends Component {
         </div>
         <div>
           <Kit />
-          <Player>Test</Player>
+          <Player />
         </div>
         <div />
       </div>

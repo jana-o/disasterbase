@@ -101,32 +101,39 @@ class Contacts extends Component {
           </tbody>
         </Table>
 
-        <h3>Add New Contact</h3>
-        <form onSubmit={this.handleSubmit.bind(this)}>
-          <input
-            type="text"
-            name="name"
-            value={this.state.name}
-            onChange={this.handleChange.bind(this)}
-            placeholder="Name"
-          />
-          <input
-            type="text"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleChange.bind(this)}
-            placeholder="Email"
-          />
-          <input
-            type="text"
-            name="phone"
-            value={this.state.phone}
-            onChange={this.handleChange.bind(this)}
-            placeholder="Phone"
-          />
-          <br />
-          <Button color="primary">Create new contact</Button>
-        </form>
+        <div className="addnewcontact">
+          <h3>Add New Contact</h3>
+
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <input
+              type="text"
+              name="name"
+              value={this.state.name}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Name"
+            />
+            <br />
+            <input
+              type="text"
+              name="email"
+              value={this.state.email}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Email"
+            />
+            <br />
+            <input
+              type="text"
+              name="phone"
+              value={this.state.phone}
+              onChange={this.handleChange.bind(this)}
+              placeholder="Phone"
+            />
+            <br />
+            <div className="createcontact">
+              <Button color="primary">Create new contact</Button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

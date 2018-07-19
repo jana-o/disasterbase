@@ -16,10 +16,16 @@ class Player extends React.Component {
     };
 
     return (
-      <div>
-        <h5>How to protect yourself during an earthquake</h5>
+      <div className="player col-sm-6">
+        <h5>HOW TO....</h5>
         <hr />
         <YouTube videoId="BLEPakj1YTY" opts={opts} onReady={this._onReady} />
+        <p className="playerlist">
+          ...protect yourself from an earthquake: <br />If you are indoors: stay
+          there! Look for cover, stay clear of exterior walls, glass.<br />
+          If you're outside: get into the open.<br />
+          Beware of potential tsunamis or landslides.
+        </p>
       </div>
     );
   }

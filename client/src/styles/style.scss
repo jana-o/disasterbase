@@ -6,9 +6,9 @@ $dark: #b2a9a4;
 @import "bootstrap/scss/bootstrap";
 //@import "video-react/styles/scss/video-react";
 
-body {
-  font: 14px "Montserrat", Arial, sans-serif;
-}
+// body {
+//   font: 14px "", Arial, sans-serif;
+// }
 
 .Footer {
   position: fixed;
@@ -29,8 +29,8 @@ body {
 }
 
 hr {
-  border-top: 2px solid $secondary;
-  width: 100%;
+  border-top: 6px solid #fbdb4a;
+  width: 50%;
 }
 
 .mapContainer {

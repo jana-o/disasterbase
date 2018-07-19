@@ -211,7 +211,9 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit; }
-
+input{
+  margin: 2px;
+}
 button,
 input {
   overflow: visible; }
@@ -6309,9 +6311,6 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-body {
-  font: 14px "Montserrat", Arial, sans-serif; }
-
 .Footer {
   position: fixed;
   height: 5vh;
@@ -6329,8 +6328,8 @@ body {
   top: 0; }
 
 hr {
-  border-top: 2px solid #dee2e6;
-  width: 100%; }
+  border-top: 6px solid #fbdb4a;
+  width: 50%; }
 
 .mapContainer .map {
   position: relative !important; }
@@ -6339,8 +6338,31 @@ hr {
   padding: 20px; }
 
 .kit {
-  text-align: left; }
+  margin-top:  20px;
+  padding: 20px; 
+}
+.kitlist {
+  text-align: left;
+  padding: 20px; 
+}
+.playerlist {
+  text-align: left;
+  padding: 20px; 
+}
+.profile{
+  text-align: left;
+}
+.features{
+  margin-top:  20px;
+  padding: 20px; 
+}
 
+.addnewcontact{
+  margin-top:  50px;
+}
+.createcontact{
+  margin-top:10px;
+}
 .cardtext {
   text-align: left; }
 
