@@ -5,6 +5,7 @@ import Searchbar from "./Searchbar";
 import TableContainer from "./Table";
 
 import Help from "./Help";
+import Update from "./Update";
 
 import api from "../api";
 
@@ -61,6 +62,9 @@ class Home extends Component {
 
           <div className="events">
             <TableContainer events={displayEvents} />
+          </div>
+          <div className="updates">
+            <Update />
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper, Polygon } from "google-maps-react";
+import { Map, GoogleApiWrapper } from "google-maps-react";
 /*global google*/
 
 class MapContainer extends Component {
@@ -18,7 +18,6 @@ class MapContainer extends Component {
   }
 
   handleMarkerClick = polygon => {
-    console.log("dgdfgdf", polygon);
     this.setState({
       center: polygon.position,
       zoom: 4

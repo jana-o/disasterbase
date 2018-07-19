@@ -48,6 +48,13 @@ export default {
       .catch(errHandler);
   },
 
+  getUpdate(starttime, endtime) {
+    return service
+      .get(`/events/update?starttime=${starttime}&endtime=${endtime}`)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   login(email, password) {
     return service
       .post("/login", {
