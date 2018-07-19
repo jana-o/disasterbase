@@ -13,7 +13,8 @@ class MapContainer extends Component {
   };
 
   componentDidMount() {
-    this.setState({ events: this.props.events, selectFlat: null });
+    this.setState({ events: this.props.events });
+    this.circlesArray = [];
   }
 
   handleMarkerClick = polygon => {
@@ -37,17 +38,26 @@ class MapContainer extends Component {
   };
 
   addMapCircle(coords, mag) {
-    new google.maps.Circle({
-      fillColor: "#FF0000",
-      fillOpacity: 0.4,
-      strokeWeight: 0,
-      center: {
-        lat: coords[1],
-        lng: coords[0]
-      },
-      radius: 15000 * mag,
-      map: this.gmap.map
+    this.circlesArray.push(
+      new google.maps.Circle({
+        fillColor: "#FF0000",
+        fillOpacity: 0.4,
+        strokeWeight: 0,
+        center: {
+          lat: coords[1],
+          lng: coords[0]
+        },
+        radius: 15000 * mag,
+        map: this.gmap.map
+      })
+    );
+  }
+
+  componentWillReceiveProps(props) {
+    this.circlesArray.map(circle => {
+      circle.setMap(null);
     });
+    this.circlesArray = [];
   }
 
   getPath(coordinates) {
@@ -58,26 +68,6 @@ class MapContainer extends Component {
           lat: coordinates[1] + m,
           lng: coordinates[0]
         },
-        // {
-        //   lat: coordinates[1] + (m * m) / Math.sqrt(0.259),
-        //   lng: coordinates[0] + m * 0.259
-        // },
-        // {
-        //   lat: coordinates[1] + (m * m) / Math.sqrt(0.5),
-        //   lng: coordinates[0] + m * 0.5
-        // },
-        // {
-        //   lat: coordinates[1] + (m * m) / Math.sqrt(0.707),
-        //   lng: coordinates[0] + m * 0.707
-        // },
-        // {
-        //   lat: coordinates[1] + (m * m) / Math.sqrt(0.866),
-        //   lng: coordinates[0] + m * 0.866
-        // },
-        // {
-        //   lat: coordinates[1] + (m * m) / Math.sqrt(0.966),
-        //   lng: coordinates[0] + m * 0.966
-        // },
 
         {
           lat: coordinates[1] + (m * Math.sqrt(2)) / 2,
@@ -134,15 +124,14 @@ class MapContainer extends Component {
             if (!googleMap) {
               return;
             }
-            //console.log(googleMap);
             this.gmap = googleMap;
           }}
         >
-          {/* {this.props.events.map((event, i) => {
+          {this.props.events.map((event, i) => {
             this.addMapCircle(event.coords.coordinates, event.mag);
-          })} */}
+          })}
 
-          {this.props.events.map(event => {
+          {/* {this.props.events.map(event => {
             return (
               <Polygon
                 fillColor="#ff0000"
@@ -155,7 +144,7 @@ class MapContainer extends Component {
                 // onMouseover={this.onMouseoverMarker}
               />
             );
-          })}
+          })} */}
         </Map>
       </div>
     );
@@ -203,3 +192,24 @@ export default GoogleApiWrapper({
 //   { lat: 37.785757, lng: -122.421333 },
 //   { lat: 37.789352, lng: -122.415346 }
 // ];
+
+// {
+//   lat: coordinates[1] + (m * m) / Math.sqrt(0.259),
+//   lng: coordinates[0] + m * 0.259
+// },
+// {
+//   lat: coordinates[1] + (m * m) / Math.sqrt(0.5),
+//   lng: coordinates[0] + m * 0.5
+// },
+// {
+//   lat: coordinates[1] + (m * m) / Math.sqrt(0.707),
+//   lng: coordinates[0] + m * 0.707
+// },
+// {
+//   lat: coordinates[1] + (m * m) / Math.sqrt(0.866),
+//   lng: coordinates[0] + m * 0.866
+// },
+// {
+//   lat: coordinates[1] + (m * m) / Math.sqrt(0.966),
+//   lng: coordinates[0] + m * 0.966
+// },
