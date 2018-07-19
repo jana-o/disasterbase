@@ -6366,7 +6366,8 @@ hr {
   text-align: right; }
 
 .eventstable {
-  margin-top: 20px; }
+  margin-top: 20px;
+  font-size: 10px; }
 
 .searchbar {
   text-align: left;
@@ -6376,3 +6377,12 @@ label {
   display: inline-block;
   text-align: right;
   width: 20%; }
+
+.updates{
+  margin-bottom: 100px;
+  font-size: 10px; 
+}
+.legend{
+  margin-top: 20px;
+  font-size: 10px; 
+}

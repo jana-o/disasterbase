@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import api from "../api";
 
@@ -17,7 +16,7 @@ class Update extends React.Component {
   getUpdate = event => {
     api
       .getUpdate(this.state.starttime, this.state.endtime)
-      .then(data => console.log("update", data));
+      .then(data => console.log("updated"));
   };
 
   handleChange = event => {
@@ -28,11 +27,11 @@ class Update extends React.Component {
 
   render() {
     return (
-      <div classname="updates mb-6">
+      <div className="updates">
         <fieldset>
           <legend>Choose date of events</legend>
 
-          <div>
+          <div className="updatefields">
             <label for="start">Start</label>
             <input
               type="date"
@@ -60,7 +59,10 @@ class Update extends React.Component {
             />
           </div>
         </fieldset>
-        <Button onClick={(starttime, endtime) => this.getUpdate()}>
+        <Button
+          color="secondary"
+          onClick={(starttime, endtime) => this.getUpdate()}
+        >
           Get update
         </Button>
       </div>

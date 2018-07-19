@@ -4,7 +4,6 @@ const Event = require("../models/event");
 const axios = require("axios");
 var mongoose = require("mongoose");
 
-// todo make UPDATE BUTTON for earthquake
 const earthquakeService = axios.create({
   baseURL: `https://earthquake.usgs.gov/fdsnws/event/1/`
 });
@@ -31,12 +30,6 @@ function sanitizeData(data) {
   return earthquakes;
 }
 
-// router.get("/", (req, res, next) => {
-//   Event.create()
-//     .then(data => res.json(data))
-//     .catch(err => next(err));
-// });
-
 // Route to get all API
 router.get("/update", (req, res, next) => {
   var starttime = req.query.starttime;
@@ -54,8 +47,6 @@ router.get("/update", (req, res, next) => {
         .then(events => res.json(events));
     })
     .catch(err => next(err));
-  // //res.json(data);
-  // console.log("Test");
 });
 
 // Route to get all from DB
