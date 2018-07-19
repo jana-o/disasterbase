@@ -4,9 +4,9 @@ class Kit extends Component {
   render() {
     return (
       <div>
-        <h3>Disaster Survival Kit</h3>
+        <h5>Disaster Survival Kit</h5>
         <hr />
-        <ul>
+        <ul className="kit">
           <li>Water</li>
           <li>Food</li>
           <li>Flashligts and spare batteries</li>

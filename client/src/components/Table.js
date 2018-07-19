@@ -28,6 +28,7 @@ class TableContainer extends Component {
               ]
             };
           })}
+          ref="table"
           hover
           pagination
           options={this.options}
@@ -35,19 +36,19 @@ class TableContainer extends Component {
           <TableHeaderColumn
             dataField="i"
             isKey={true}
-            dataSort
+            dataSort={true}
             dataAlign="center"
           >
             #
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="place" dataSort>
+          <TableHeaderColumn dataField="place" dataSort={true}>
             Place
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="mag" dataSort>
+          <TableHeaderColumn dataField="mag" dataSort={true}>
             Magnitude
           </TableHeaderColumn>
 
-          <TableHeaderColumn dataField="coords" dataSort>
+          <TableHeaderColumn dataField="coords" dataSort={true}>
             Coordinates
           </TableHeaderColumn>
         </BootstrapTable>,

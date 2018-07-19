@@ -1,11 +1,7 @@
 $primary: #fbdb4a;
 $secondary: #dee2e6;
 $dark: #b2a9a4;
-// $success
-// $info
-// $warning
-//$danger: #fbdb4a;
-
+// $success // $info // $warning //$danger: #fbdb4a;
 // $light// $dark
 @import "bootstrap/scss/bootstrap";
 //@import "video-react/styles/scss/video-react";
@@ -15,6 +11,7 @@ body {
 }
 
 .Footer {
+  position: fixed;
   height: 5vh;
   padding: 1vh;
   left: 0;
@@ -45,7 +42,39 @@ hr {
   padding: 20px;
 }
 
-.event:hover {
-  background-color: #fbdb4a;
-  opacity: 0.9;
+.kit {
+  text-align: left;
 }
+.cardtext {
+  text-align: left;
+}
+.container {
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.dropup .caret {
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+  content: "";
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+// .product {
+//   background-image: url(./screen.png);
+// }
+
+// .event:hover {
+//   background-color: #fbdb4a;
+//   opacity: 0.9;
+// }

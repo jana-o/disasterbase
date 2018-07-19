@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import api from "../api";
 import {
   Card,
-  CardImg,
   CardText,
   CardBody,
   CardTitle,
+  CardImg,
   CardSubtitle,
   Button
 } from "reactstrap";
 import { Link } from "react-router-dom";
-import { userInfo } from "os";
+import logo from "../styles/email.png";
 
 class GetHelp extends Component {
   componentDidMount() {
@@ -23,19 +23,15 @@ class GetHelp extends Component {
     return (
       <div>
         <Card>
-          {/* <CardImg
-            top
-            width="50%"
-            src="../styles/email.png"
-            alt="Card image cap"
-          /> */}
+          {/* <img width="20%" src={logo} className="App-logo" alt="logo" />{" "} */}
+          {/* <CardImg top width="100%" src={logo} alt="Card image cap" /> */}
           <CardBody>
             <CardTitle>Help is on its way!</CardTitle>
             <CardSubtitle>
               We have notified your emergency contacts.
             </CardSubtitle>
             <hr />
-            <CardText>
+            <CardText classname="cardtext">
               Take care of yourself and remember:<br />
               If you are indoors: stay there! Look for cover, stay clear of
               exterior walls, glass.<br />

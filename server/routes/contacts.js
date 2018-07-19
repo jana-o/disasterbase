@@ -100,23 +100,6 @@ router.get("/get-help/:id", (req, res, next) => {
     .catch(error => next(error));
 });
 
-// router.delete("/:id", (req, res, next) => {
-//   console.log("enter delete id");
-
-//   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-//     res.status(400).json({ message: "Specified id is not valid" });
-//     return;
-//   }
-
-//   Contact.remove({ _id: req.params.id })
-//     .then(message => {
-//       return res.json({
-//         message: "Contact has been removed!"
-//       });
-//     })
-//     .catch(error => next(error));
-// });
-
 /* EDIT . */
 router.put("/:id", (req, res, next) => {
   if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
