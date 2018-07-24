@@ -7,8 +7,8 @@ Disasterbase is a database for natural disasters. Data visualization of earthqua
 Increasing number of people traveling the world. The Mission is to help people before, during, and after disasters: provide information, real-time action, and generation preparatory information. 
 
 ## Key features:
-- Map - data visualization
-- Notification (Nodemailer)
+- Map - data visualization of earthquake data on map and in table (Search, filter & sort Table and Map, Marker shaped as circle, OnClick zoom)
+- Notification (Nodemailer) (create a list of emergency contacts, send email in case of emergency)
 - Information (embedded Youtube videos)
 
 ## How does the tech work under the hood?
