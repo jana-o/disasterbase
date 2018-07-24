@@ -7,9 +7,9 @@ Disasterbase is a database for natural disasters. Data visualization of earthqua
 Increasing number of people traveling the world. The Mission is to help people before, during, and after disasters: provide information, real-time action, and generation preparatory information. 
 
 ## Key features:
-Map - data visualization
-Notification (Nodemailer)
-Information (embedded Youtube videos)
+- Map - data visualization
+- Notification (Nodemailer)
+- Information (embedded Youtube videos)
 
 ## How does the tech work under the hood?
 MERN stack - MongoDB, Express, React, Node. In addition, I used the Nodemailer for sending emails and several packages. In the course of the porject development I took some time to explore how packages work and how they interact with React modules. 
