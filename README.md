@@ -19,8 +19,8 @@ This was the first app I developed on my own. I had so much fun creating it and 
 
 Hope you enjoyed playing with the app! Cheers, J.
 
-### Deployment on Heroku
-https://disasterbase.herokuapp.com
+### Behance presentation
+https://www.behance.net/gallery/68261801/Disasterbase
 
 ### Directory structure
 ```
